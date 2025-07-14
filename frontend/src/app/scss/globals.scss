@@ -1,7 +1,8 @@
-@import "tailwindcss";
+@use "tailwindcss";
+@use "./var" as *;
 
 :root {
-  --background: #ffffff;
+  --background: #fff;
   --foreground: #171717;
 }
 
