@@ -1,8 +1,6 @@
 import { draftMode } from 'next/headers';
 import React from 'react';
 
-
-
 export const DraftModeStatus: React.FC = async () => {
     const { isEnabled } = await draftMode();
     const cookieStore = await import('next/headers').then(m => m.cookies());

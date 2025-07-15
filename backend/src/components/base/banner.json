@@ -1,8 +1,7 @@
 {
-  "collectionName": "components_page_banners",
+  "collectionName": "components_base_banners",
   "info": {
-    "displayName": "banner",
-    "icon": "landscape"
+    "displayName": "banner"
   },
   "options": {},
   "attributes": {
@@ -19,12 +18,15 @@
     "ctaLink": {
       "type": "string"
     },
+    "mobileImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
     "desktopImage": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
     }
   },
   "config": {}

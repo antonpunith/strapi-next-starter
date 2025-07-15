@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_base_navs",
+  "info": {
+    "displayName": "nav",
+    "icon": "oneWay"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}

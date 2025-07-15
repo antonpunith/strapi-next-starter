@@ -1,7 +1,8 @@
 {
-  "collectionName": "components_page_intro_text_sections",
+  "collectionName": "components_dynamic_intro_texts",
   "info": {
-    "displayName": "IntroTextSection"
+    "displayName": "IntroText",
+    "icon": "grid"
   },
   "options": {},
   "attributes": {

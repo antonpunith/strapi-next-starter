@@ -1,5 +1,5 @@
 {
-  "collectionName": "components_page_hero_banners",
+  "collectionName": "components_dynamic_hero_banners",
   "info": {
     "displayName": "heroBanner"
   },
@@ -16,7 +16,7 @@
     },
     "banner": {
       "type": "component",
-      "component": "page.banner",
+      "component": "base.banner",
       "repeatable": true
     }
   },

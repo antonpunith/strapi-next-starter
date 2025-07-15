@@ -1,8 +1,7 @@
 {
-  "collectionName": "components_page_image_or_color_banners",
+  "collectionName": "components_dynamic_image_or_color_banners",
   "info": {
-    "displayName": "ImageOrColorBanner",
-    "icon": "expand"
+    "displayName": "ImageOrColorBanner"
   },
   "options": {},
   "attributes": {

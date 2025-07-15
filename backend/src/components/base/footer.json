@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_base_footers",
+  "info": {
+    "displayName": "footer"
+  },
+  "options": {},
+  "attributes": {
+    "footerNavigation": {
+      "type": "component",
+      "component": "base.nav",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

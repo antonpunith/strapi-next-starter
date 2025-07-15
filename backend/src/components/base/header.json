@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_base_headers",
+  "info": {
+    "displayName": "header",
+    "icon": "server"
+  },
+  "options": {},
+  "attributes": {
+
+    "headerNavigation": {
+      "type": "component",
+      "component": "base.nav",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

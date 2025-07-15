@@ -1,3 +1,7 @@
+import {
+  type BlocksContent,
+} from "@strapi/blocks-react-renderer";
+
 export interface Seo {
   id: number;
   metaTitle: string;
@@ -19,23 +23,32 @@ export interface PageResponse {
 // Type declarations for HeroBannerSection and IntroTextSection
 
 export interface HeroBannerSection {
-    id: number;
-    __component: "page.hero-banner";
-    title: string;
-    speed: number;
+  id: number;
+  __component: "dynamic.hero-banner";
+  title: string;
+  speed: number;
 }
 
 export interface IntroTextSection {
-    id: number;
-    __component: "page.intro-text-section";
-    title: string;
-    content: Array<{
-        type: string;
-        children: Array<{
-            type: string;
-            text: string;
-        }>;
+  id: number;
+  __component: "dynamic.intro-text";
+  title: string;
+  content: Array<{
+    type: string;
+    children: Array<{
+      type: string;
+      text: string;
     }>;
-    ctaText: string;
-    ctaLink: string;
+  }>;
+  ctaText: string;
+  ctaLink: string;
+}
+
+export interface ImageOrColorBanner {
+  id?: string | number;
+  title?: string;
+  description?: BlocksContent;
+  ctaLink?: string;
+  ctaText?: string;
+  __component: "dynamic.image-or-color-banner";
 }
