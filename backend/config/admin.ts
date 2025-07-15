@@ -63,6 +63,7 @@ export default ({ env }) => {
 
           const urlSearchParams = new URLSearchParams({
             url: pathname,
+            preview: "true",
             status,
           });
           return `${clientUrl}/api/preview?${urlSearchParams}`;
