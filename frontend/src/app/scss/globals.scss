@@ -1,5 +1,6 @@
 @use "tailwindcss";
 @use "./var" as *;
+@use "./typography";
 
 :root {
   --background: #fff;
