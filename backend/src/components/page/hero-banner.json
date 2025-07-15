@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_page_hero_banners",
+  "info": {
+    "displayName": "heroBanner"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "speed": {
+      "type": "integer",
+      "required": true,
+      "default": 2000
+    },
+    "banner": {
+      "type": "component",
+      "component": "page.banner",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

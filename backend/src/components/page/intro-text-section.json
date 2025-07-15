@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_page_intro_text_sections",
+  "info": {
+    "displayName": "IntroTextSection"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "content": {
+      "type": "blocks"
+    },
+    "ctaText": {
+      "type": "string"
+    },
+    "ctaLink": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

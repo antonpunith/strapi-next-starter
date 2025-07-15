@@ -23,6 +23,13 @@
       "type": "component",
       "component": "common.seo",
       "repeatable": false
+    },
+    "pageSections": {
+      "type": "dynamiczone",
+      "components": [
+        "page.intro-text-section",
+        "page.hero-banner"
+      ]
     }
   }
 }
