@@ -492,6 +492,7 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
       ['page.intro-text-section', 'page.hero-banner']
     >;
     publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'common.seo', false>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

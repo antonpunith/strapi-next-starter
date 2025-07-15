@@ -21,6 +21,11 @@
         "page.intro-text-section",
         "page.hero-banner"
       ]
+    },
+    "seo": {
+      "type": "component",
+      "component": "common.seo",
+      "repeatable": false
     }
   }
 }
