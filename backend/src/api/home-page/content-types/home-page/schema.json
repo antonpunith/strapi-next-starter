@@ -19,7 +19,8 @@
       "type": "dynamiczone",
       "components": [
         "page.intro-text-section",
-        "page.hero-banner"
+        "page.hero-banner",
+        "page.image-or-color-banner"
       ]
     },
     "seo": {

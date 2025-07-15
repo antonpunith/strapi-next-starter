@@ -41,6 +41,21 @@ export interface PageHeroBanner extends Struct.ComponentSchema {
   };
 }
 
+export interface PageImageOrColorBanner extends Struct.ComponentSchema {
+  collectionName: 'components_page_image_or_color_banners';
+  info: {
+    displayName: 'ImageOrColorBanner';
+    icon: 'expand';
+  };
+  attributes: {
+    background: Schema.Attribute.String;
+    ctaLink: Schema.Attribute.String;
+    ctaText: Schema.Attribute.String;
+    description: Schema.Attribute.Blocks;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface PageIntroTextSection extends Struct.ComponentSchema {
   collectionName: 'components_page_intro_text_sections';
   info: {
@@ -60,6 +75,7 @@ declare module '@strapi/strapi' {
       'common.seo': CommonSeo;
       'page.banner': PageBanner;
       'page.hero-banner': PageHeroBanner;
+      'page.image-or-color-banner': PageImageOrColorBanner;
       'page.intro-text-section': PageIntroTextSection;
     }
   }

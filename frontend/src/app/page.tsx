@@ -4,6 +4,14 @@ import { DraftModeStatus } from '@/components/DraftModeStatus';
 import { PageSections } from '@/components/PageSections';
 import { PageClient } from '@/components/PageClient';
 
+export async function generateMetadata() {
+  const data: PageResponse = await fetchFromStrapi('/');
+  return {
+    title: data.seo?.metaTitle || data.title,
+    description: data.seo?.metaDescription, // or another field from your data
+  };
+}
+
 export default async function Home() {
   const data: PageResponse = await fetchFromStrapi('/');
   return (
@@ -16,12 +24,4 @@ export default async function Home() {
       <PageClient />
     </div>
   );
-}
-
-export async function generateMetadata() {
-  const data: PageResponse = await fetchFromStrapi('/');
-  return {
-    title: data.seo?.metaTitle || data.title,
-    description: data.seo?.metaDescription, // or another field from your data
-  };
 }

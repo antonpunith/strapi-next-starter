@@ -489,7 +489,11 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     pageSections: Schema.Attribute.DynamicZone<
-      ['page.intro-text-section', 'page.hero-banner']
+      [
+        'page.intro-text-section',
+        'page.hero-banner',
+        'page.image-or-color-banner',
+      ]
     >;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'common.seo', false>;
@@ -518,7 +522,11 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::page.page'> &
       Schema.Attribute.Private;
     pageSections: Schema.Attribute.DynamicZone<
-      ['page.intro-text-section', 'page.hero-banner']
+      [
+        'page.intro-text-section',
+        'page.hero-banner',
+        'page.image-or-color-banner',
+      ]
     >;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'common.seo', false>;

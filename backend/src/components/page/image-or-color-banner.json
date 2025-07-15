@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_page_image_or_color_banners",
+  "info": {
+    "displayName": "ImageOrColorBanner",
+    "icon": "expand"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "ctaLink": {
+      "type": "string"
+    },
+    "ctaText": {
+      "type": "string"
+    },
+    "background": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
