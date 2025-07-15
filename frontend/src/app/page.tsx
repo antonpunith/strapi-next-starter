@@ -9,13 +9,13 @@ let cachedData: PageResponse | null = null;
 
  const getHomePageData = cache(async () => {
   if (!cachedData) {
-    cachedData = await fetchFromStrapi('/');
+    cachedData = await fetchFromStrapi('home-page');
   }
   return cachedData;
 });
 
 export async function generateMetadata() {
-  const data = await getHomePageData();
+  const data: PageResponse | null = await getHomePageData();
   return {
     title: data?.seo?.metaTitle || data?.title || 'Home',
     description: data?.seo?.metaDescription || '',
@@ -23,7 +23,7 @@ export async function generateMetadata() {
 }
 
 export default async function Home() {
-  const data = await getHomePageData();
+  const data: PageResponse | null = await getHomePageData();
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-100 flex flex-col items-center justify-center p-8">
       <h1 className="text-4xl font-bold text-blue-700 mb-6 drop-shadow-lg">{data?.title || 'Home'}</h1>

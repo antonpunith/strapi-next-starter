@@ -1,0 +1,39 @@
+import React from "react";
+import Link from "next/link";
+
+export interface Nav {
+  id: string | number;
+  title: string;
+  slug: string;
+}
+
+interface HeaderProps {
+  navigation: Nav[];
+}
+
+export const Header: React.FC<HeaderProps> = ({ navigation }) => (
+  <header className="w-full bg-white shadow mb-8">
+    <nav className="container mx-auto px-4 py-4">
+      <ul className="flex gap-6">
+        <li>
+          <Link
+            href="/"
+            className="text-blue-700 hover:text-blue-900 font-bold text-lg transition-colors"
+          >
+            Home
+          </Link>
+        </li>
+        {navigation.map((item) => (
+          <li key={item.id}>
+            <a
+              href={`/${item.slug}`}
+              className="text-blue-700 hover:text-blue-900 font-semibold transition-colors"
+            >
+              {item.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </header>
+);

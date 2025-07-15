@@ -1,8 +1,11 @@
 import qs from "qs";
 import { cookies, draftMode } from "next/headers";
 
+type PopulateOption = string | Record<string, Record<string, string>>;
+
 export async function fetchFromStrapi<T>(
   slug: string,
+  populate: PopulateOption = "*"
 ): Promise<T> {
   try {
     const { isEnabled: isDraftMode } = await draftMode();
@@ -16,17 +19,21 @@ export async function fetchFromStrapi<T>(
     let useDocumentId = true;
 
     const status = isDraftMode ? 'draft' : 'published';
-    let query = qs.stringify({status});
+    let query = qs.stringify({ status });
 
     switch (slug) {
-      case '/':
-        endpoint = `${API_URL}/api/home-page`;
-        query = qs.stringify({ populate: "*", status });
+      case "home-page":
+      case "blog":
+        endpoint = `${API_URL}/api/${slug}`;
+        query = qs.stringify({ populate, status });
         useDocumentId = false;
         break;
-      case 'blog':
-        endpoint = `${API_URL}/api/blog`;
-        query = qs.stringify({ populate: "*", status });
+      case "global":
+        endpoint = `${API_URL}/api/global`;
+        query = qs.stringify({
+          status,
+          populate,
+        });
         useDocumentId = false;
         break;
       default:
@@ -57,7 +64,7 @@ export async function fetchFromStrapi<T>(
       });
       const json = await res.json();
       const documentId = json.data?.[0]?.documentId;
-      const deepQuery = qs.stringify({ populate: "*", status });
+      const deepQuery = qs.stringify({ populate, status });
       const deepRes = await fetch(
         `${API_URL}/api/pages/${documentId}?${deepQuery}`,
         {

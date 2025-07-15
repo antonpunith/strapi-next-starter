@@ -52,3 +52,5 @@ export interface ImageOrColorBanner {
   ctaText?: string;
   __component: "dynamic.image-or-color-banner";
 }
+
+
