@@ -17,12 +17,8 @@
     },
     "slug": {
       "type": "string",
-      "required": true
-    },
-    "seo": {
-      "type": "component",
-      "component": "common.seo",
-      "repeatable": false
+      "required": true,
+      "unique": true
     },
     "pageSections": {
       "type": "dynamiczone",
@@ -30,6 +26,11 @@
         "page.intro-text-section",
         "page.hero-banner"
       ]
+    },
+    "seo": {
+      "type": "component",
+      "component": "common.seo",
+      "repeatable": false
     }
   }
 }

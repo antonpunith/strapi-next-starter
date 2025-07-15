@@ -7,6 +7,9 @@ const getPreviewPathname = (uid, { locale, document }): string => {
     // Handle pages with predefined routes
     case "api::page.page":
       return `/${slug}`; // Assuming slug is the path for pages
+    case "api::blog.blog": {
+      return `/blog`; // Individual article page
+    }
     // Handle blog articles
     case "api::article.article": {
       if (!slug) {

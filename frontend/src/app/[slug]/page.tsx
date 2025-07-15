@@ -1,27 +1,22 @@
 import { PageClient } from '@/components/PageClient';
 import { fetchFromStrapi } from '@/lib/strapi/fetchFromStrapi';
-import { draftMode } from 'next/headers';
+import { PageResponse } from '@/lib/strapi/types';
+import { DraftModeStatus } from '@/components/DraftModeStatus';
+import { PageSections } from '@/components/PageSections';
 
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const awaitedParams = await params;
-  const { isEnabled } = await draftMode();
   const { slug } = awaitedParams;
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const data: any = await fetchFromStrapi(slug);
-  if(!data.data.length) {
-    return null;
-  }
-  const { title } = data.data[0];
-
-  return (<div><h1>{title}</h1>
-    <p>{JSON.stringify(data)}</p>
-    {isEnabled ? (
-      <p className="text-green-500">Draft mode is enabled</p>
-    ) : (
-      <p className="text-red-500">Draft mode is disabled</p>
-    )}
-    <PageClient />
-  </div>);
+  const data: PageResponse = await fetchFromStrapi(slug);
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-100 flex flex-col items-center justify-center p-8">
+      <h1 className="text-4xl font-bold text-blue-700 mb-6 drop-shadow-lg">{data.title}</h1>
+      <div className="w-full max-w-2xl bg-white rounded-xl shadow-lg p-6 mb-6">
+        <PageSections sections={data.pageSections} />
+      </div>
+      <DraftModeStatus />
+      <PageClient />
+    </div>
+  );
 }
