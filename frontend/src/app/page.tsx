@@ -2,6 +2,7 @@ import { fetchFromStrapi } from '@/lib/strapi/fetchFromStrapi';
 import { PageResponse } from '@/lib/strapi/types';
 import { DraftModeStatus } from '@/components/DraftModeStatus';
 import { PageSections } from '@/components/PageSections';
+import { PageClient } from '@/components/PageClient';
 
 export default async function Home() {
   const data: PageResponse = await fetchFromStrapi('/');
@@ -12,6 +13,7 @@ export default async function Home() {
         <PageSections sections={data.pageSections} />
       </div>
       <DraftModeStatus />
+      <PageClient />
     </div>
   );
 }

@@ -13,26 +13,26 @@ export async function fetchFromStrapi<T>(
     const API_URL = process.env.STRAPI_API_URL || "http://localhost:1337";
 
     let endpoint = '';
-    let query = '';
     let useDocumentId = true;
 
-    const publicationState = isDraftMode ? 'preview' : 'live';
+    const status = isDraftMode ? 'draft' : 'published';
+    let query = qs.stringify({status});
 
     switch (slug) {
       case '/':
         endpoint = `${API_URL}/api/home-page`;
-        query = qs.stringify({ populate: '*', publicationState });
+        query = qs.stringify({ populate: "*", status });
         useDocumentId = false;
         break;
       case 'blog':
         endpoint = `${API_URL}/api/blog`;
-        query = qs.stringify({ populate: '*', publicationState });
+        query = qs.stringify({ populate: "*", status });
         useDocumentId = false;
         break;
       default:
         const idQuery = qs.stringify({
           filters: { slug: { $eq: slug } },
-          publicationState,
+          status,
         });
         endpoint = `${API_URL}/api/pages?${idQuery}`;
         useDocumentId = true;
@@ -51,16 +51,17 @@ export async function fetchFromStrapi<T>(
         throw new Error(`Failed to fetch ${slug} ${endpoint} : ${res.statusText}`);
       return fullData.data;
     } else {
-      const res = await fetch(endpoint, {
-        cache: isPreview ? 'no-store' : 'force-cache',
+      const res = await fetch(`${endpoint}?${query}`, {
+        cache: isPreview ? "no-store" : "force-cache",
         next: { revalidate: isPreview ? 0 : 3600 },
       });
       const json = await res.json();
       const documentId = json.data?.[0]?.documentId;
-      const deepQuery = qs.stringify({ populate: '*' });
+      const deepQuery = qs.stringify({ populate: "*", status });
       const deepRes = await fetch(
-        `${API_URL}/api/pages/${documentId}?${deepQuery}`, {
-          cache: isPreview ? 'no-store' : 'force-cache',
+        `${API_URL}/api/pages/${documentId}?${deepQuery}`,
+        {
+          cache: isPreview ? "no-store" : "force-cache",
           next: { revalidate: isPreview ? 0 : 3600 },
         }
       );
