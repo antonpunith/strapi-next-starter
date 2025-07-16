@@ -1,6 +1,8 @@
 import { fetchFromStrapi } from '@/lib/strapi/fetchFromStrapi';
 import { PageResponse } from '@/lib/strapi/types';
 
+export const dynamic = 'force-dynamic';
+
 export default async function BlogPage() {
   const data: PageResponse = await fetchFromStrapi('blog');
   return (
