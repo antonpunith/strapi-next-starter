@@ -23,10 +23,10 @@ export const PageSections: React.FC<PageSectionsProps> = ({ sections }) => {
           return <HeroBannerSection key={`hero-banner-${section.id}` || idx} section={section} />;
         }
         if (section.__typename === 'ComponentDynamicIntroText') {
-          return <IntroTextSection key={`intro-text-${section.id}` || idx} title={section.title} content={section.content as BlocksContent} ctaText={section.ctaText} ctaLink={section.ctaLink} />;
+          return <IntroTextSection key={`intro-text-${section.id}` || idx} title={section.introTitle} content={section.content as BlocksContent} ctaText={section.ctaText} ctaLink={section.ctaLink} />;
         }
         if (section.__typename === 'ComponentDynamicImageOrColorBanner') {
-          return <ImageOrColorBanner key={`image-or-color-banner-${section.id}` || idx} title={section.title ?? ''} description={section.description as BlocksContent} ctaText={section.ctaText} ctaLink={section.ctaLink} />;
+          return <ImageOrColorBanner key={`image-or-color-banner-${section.id}` || idx} title={section.colorBannerTitle ?? ''} description={section.description as BlocksContent} ctaText={section.ctaText} ctaLink={section.ctaLink} />;
         }
         return null;
       })}

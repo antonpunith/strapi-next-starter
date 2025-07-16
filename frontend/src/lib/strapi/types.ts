@@ -25,14 +25,14 @@ export interface PageResponse {
 export interface HeroBannerSectionType {
   id: number;
   __component: "dynamic.hero-banner";
-  title: string;
+  heroTitle: string;
   speed: number;
 }
 
 export interface IntroTextSectionType {
   id: number;
   __component: "dynamic.intro-text";
-  title: string;
+  introTitle: string;
   content: Array<{
     type: string;
     children: Array<{
@@ -46,7 +46,7 @@ export interface IntroTextSectionType {
 
 export interface ImageOrColorBannerType {
   id?: string | number;
-  title?: string;
+  colorBannerTitle?: string;
   description?: BlocksContent;
   ctaLink?: string;
   ctaText?: string;

@@ -8,6 +8,7 @@ interface HeroBannerSectionProps {
 
 export const HeroBannerSection: React.FC<HeroBannerSectionProps> = ({ section }) => (
   <div className="bg-blue-50 rounded-lg p-4 shadow">
+    <h2>{section.heroTitle}</h2>
     {section.banner && Array.isArray(section.banner) && (
       <div className="mt-4 space-y-4">
         {section.banner.map((item: any) => (
