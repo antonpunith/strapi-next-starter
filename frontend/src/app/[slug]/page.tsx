@@ -6,7 +6,6 @@ import { GET_PAGE_BY_SLUG } from '@/lib/strapi/queries/pages';
 import type { InferGetStaticPropsType } from 'next'
 import { getStaticProps } from 'next/dist/build/templates/pages';
 
-export const dynamic = 'force-dynamic';
 
 export default async function Page({ params }: InferGetStaticPropsType<typeof getStaticProps>) {
   const { slug } = await params;

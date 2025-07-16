@@ -4,7 +4,6 @@ import { PageSections } from '@/components/PageSections';
 import { fetchGraphql } from '@/lib/strapi/fetchGraphql';
 import { GET_HOME } from '@/lib/strapi/queries/home';
 
-export const dynamic = 'force-dynamic';
 
 const HomePage = async () => {
   const data = await fetchGraphql(GET_HOME);

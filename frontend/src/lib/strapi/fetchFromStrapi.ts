@@ -1,6 +1,17 @@
 import qs from "qs";
 import { cookies, draftMode } from "next/headers";
 
+export function isRequestAvailable(): boolean {
+  try {
+    // Throws during build time if no request context
+    draftMode();
+    cookies();
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 type PopulateOption =
   | string
   | string[]
@@ -11,11 +22,15 @@ export async function fetchFromStrapi<T>(
   populate: PopulateOption = "*"
 ): Promise<T> {
   try {
-    const { isEnabled: isDraftMode } = await draftMode();
-    const cookieStore = await cookies();
-    const isPreview = cookieStore.get("preview")?.value === "true";
-  
-
+    const hasRequest = isRequestAvailable();
+    let isPreview = false;
+    let isDraftMode = false;
+    if (hasRequest) {
+      const cookieStore = await cookies();
+      isPreview = cookieStore.get("preview")?.value === "true";
+      isDraftMode = (await draftMode()).isEnabled;
+    }
+    
     const API_URL = process.env.STRAPI_API_URL || "http://localhost:1337";
 
     let endpoint = "";

@@ -1,22 +1,22 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./scss/globals.scss";
-// import { getGlobalData } from "@/lib/globalData";
-// import { Header } from '@/components/Header';
-// import { Footer } from '@/components/Footer';
+import { getGlobalData } from "@/lib/globalData";
+import { Header } from '@/components/Header';
+import { Footer } from '@/components/Footer';
 
 // Define the type for globalData based on its expected structure
-// type GlobalData = {
-//   header: {
-//     headerNavigation: Nav[];
-//   };
-//   footer: {
-//     footerNavigation: Nav[];
-//   };
-// };
+type GlobalData = {
+  header: {
+    headerNavigation: Nav[];
+  };
+  footer: {
+    footerNavigation: Nav[];
+  };
+};
 
-// interface Nav {
-//   id: string; title: string; slug: string
-// }
+interface Nav {
+  id: string; title: string; slug: string
+}
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,13 +34,13 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // const globalData = await getGlobalData() as GlobalData;
+  const globalData = await getGlobalData() as GlobalData;
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {/* <Header navigation={globalData.header.headerNavigation} /> */}
+        <Header navigation={globalData.header.headerNavigation} />
         {children}
-        {/* <Footer navigation={globalData.footer.footerNavigation} /> */}
+        <Footer navigation={globalData.footer.footerNavigation} />
       </body>
     </html>
   );
