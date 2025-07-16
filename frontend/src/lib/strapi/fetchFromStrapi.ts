@@ -1,7 +1,10 @@
 import qs from "qs";
 import { cookies, draftMode } from "next/headers";
 
-type PopulateOption = string | Record<string, Record<string, string>>;
+type PopulateOption =
+  | string
+  | string[]
+  | {[key: string]: | PopulateOption | {on: {[component: string]: PopulateOption;};};};
 
 export async function fetchFromStrapi<T>(
   slug: string,
@@ -9,16 +12,16 @@ export async function fetchFromStrapi<T>(
 ): Promise<T> {
   try {
     const { isEnabled: isDraftMode } = await draftMode();
-
     const cookieStore = await cookies();
     const isPreview = cookieStore.get("preview")?.value === "true";
+  
 
     const API_URL = process.env.STRAPI_API_URL || "http://localhost:1337";
 
-    let endpoint = '';
+    let endpoint = "";
     let useDocumentId = true;
 
-    const status = isDraftMode ? 'draft' : 'published';
+    const status = isDraftMode ? "draft" : "published";
     let query = qs.stringify({ status });
 
     switch (slug) {
@@ -50,12 +53,14 @@ export async function fetchFromStrapi<T>(
     if (!useDocumentId) {
       // only for pages
       const res = await fetch(`${endpoint}?${query}`, {
-        cache: isPreview ? 'no-store' : 'force-cache',
+        cache: isPreview ? "no-store" : "force-cache",
         next: { revalidate: isPreview ? 0 : 3600 },
       });
       fullData = await res.json();
       if (!res.ok)
-        throw new Error(`Failed to fetch ${slug} ${endpoint} : ${res.statusText}`);
+        throw new Error(
+          `Failed to fetch ${slug} ${endpoint} : ${res.statusText}`
+        );
       return fullData.data;
     } else {
       const res = await fetch(`${endpoint}?${query}`, {
@@ -74,7 +79,9 @@ export async function fetchFromStrapi<T>(
       );
       fullData = await deepRes.json();
       if (!res.ok)
-        throw new Error(`Failed to fetch ${slug} ${endpoint} : ${res.statusText}`);
+        throw new Error(
+          `Failed to fetch ${slug} ${endpoint} : ${res.statusText}`
+        );
       return fullData.data;
     }
   } catch (error) {

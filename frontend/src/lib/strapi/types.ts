@@ -17,19 +17,19 @@ export interface PageResponse {
   updatedAt: string;
   publishedAt: string;
   seo: Seo | null;
-  pageSections: Array<HeroBannerSection | IntroTextSection>;
+  pageSections: Array<HeroBannerSectionType | IntroTextSectionType | ImageOrColorBannerType>;
 }
 
 // Type declarations for HeroBannerSection and IntroTextSection
 
-export interface HeroBannerSection {
+export interface HeroBannerSectionType {
   id: number;
   __component: "dynamic.hero-banner";
   title: string;
   speed: number;
 }
 
-export interface IntroTextSection {
+export interface IntroTextSectionType {
   id: number;
   __component: "dynamic.intro-text";
   title: string;
@@ -44,7 +44,7 @@ export interface IntroTextSection {
   ctaLink: string;
 }
 
-export interface ImageOrColorBanner {
+export interface ImageOrColorBannerType {
   id?: string | number;
   title?: string;
   description?: BlocksContent;
