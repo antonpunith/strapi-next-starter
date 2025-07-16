@@ -3,6 +3,8 @@ import "./scss/globals.scss";
 import { getGlobalData } from "@/lib/globalData";
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import { PageClient } from "@/components/PageClient";
+import { DraftModeStatus } from '@/components/DraftModeStatus';
 
 // Define the type for globalData based on its expected structure
 type GlobalData = {
@@ -40,7 +42,9 @@ export default async function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Header navigation={globalData.header.headerNavigation} />
         {children}
+        <DraftModeStatus />
         <Footer navigation={globalData.footer.footerNavigation} />
+        <PageClient />
       </body>
     </html>
   );

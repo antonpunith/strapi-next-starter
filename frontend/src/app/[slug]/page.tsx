@@ -1,5 +1,3 @@
-import { PageClient } from '@/components/PageClient';
-import { DraftModeStatus } from '@/components/DraftModeStatus';
 import { PageSections } from '@/components/PageSections';
 import { fetchGraphql } from '@/lib/strapi/fetchGraphql';
 import { GET_PAGE_BY_SLUG } from '@/lib/strapi/queries/pages';
@@ -18,8 +16,6 @@ export default async function Page({ params }: InferGetStaticPropsType<typeof ge
       <div className="w-full max-w-2xl bg-white rounded-xl shadow-lg p-6 mb-6">
         <PageSections sections={pageData.pageSections} />
       </div>
-      <DraftModeStatus />
-      <PageClient />
     </div>
   );
 }

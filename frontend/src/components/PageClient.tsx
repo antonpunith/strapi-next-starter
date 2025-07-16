@@ -17,7 +17,6 @@ export function PageClient() {
                 router.refresh();
             }
         };
-
         // Add the event listener
         window.addEventListener("message", handleMessage);
 
