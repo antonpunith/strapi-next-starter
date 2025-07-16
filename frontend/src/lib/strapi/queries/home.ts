@@ -1,8 +1,8 @@
 import { PAGE_SECTIONS } from './fragments/pageSections';
 
 const GET_HOME = `
-query GetHome {
-  homePage {
+query ($status: PublicationStatus) {
+  homePage(status: $status) {
     title
     ${PAGE_SECTIONS}
   }
