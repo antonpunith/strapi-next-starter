@@ -1,6 +1,6 @@
 const PAGE_SECTIONS = `
 pageSections {
-  ... on ComponentDynamicHeroBanner {
+  ... on ComponentPageHeroBanner {
     __typename
     heroTitle : title
     speed
@@ -19,14 +19,14 @@ pageSections {
         }
     }
   }
-  ... on ComponentDynamicIntroText {
+  ... on ComponentPageIntroText {
     __typename
     introTitle: title
     ctaText
     ctaLink
     content
   }
-  ... on ComponentDynamicImageOrColorBanner {
+  ... on ComponentPageImageOrColorBanner {
     __typename
     colorBannerTitle: title
     background

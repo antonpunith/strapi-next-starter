@@ -80,8 +80,8 @@ export interface CommonSeo extends Struct.ComponentSchema {
   };
 }
 
-export interface DynamicHeroBanner extends Struct.ComponentSchema {
-  collectionName: 'components_dynamic_hero_banners';
+export interface PageHeroBanner extends Struct.ComponentSchema {
+  collectionName: 'components_page_hero_banners';
   info: {
     displayName: 'heroBanner';
   };
@@ -94,8 +94,8 @@ export interface DynamicHeroBanner extends Struct.ComponentSchema {
   };
 }
 
-export interface DynamicImageOrColorBanner extends Struct.ComponentSchema {
-  collectionName: 'components_dynamic_image_or_color_banners';
+export interface PageImageOrColorBanner extends Struct.ComponentSchema {
+  collectionName: 'components_page_image_or_color_banners';
   info: {
     displayName: 'ImageOrColorBanner';
   };
@@ -108,8 +108,8 @@ export interface DynamicImageOrColorBanner extends Struct.ComponentSchema {
   };
 }
 
-export interface DynamicIntroText extends Struct.ComponentSchema {
-  collectionName: 'components_dynamic_intro_texts';
+export interface PageIntroText extends Struct.ComponentSchema {
+  collectionName: 'components_page_intro_texts';
   info: {
     displayName: 'IntroText';
     icon: 'grid';
@@ -132,9 +132,9 @@ declare module '@strapi/strapi' {
       'base.nav': BaseNav;
       'base.seo': BaseSeo;
       'common.seo': CommonSeo;
-      'dynamic.hero-banner': DynamicHeroBanner;
-      'dynamic.image-or-color-banner': DynamicImageOrColorBanner;
-      'dynamic.intro-text': DynamicIntroText;
+      'page.hero-banner': PageHeroBanner;
+      'page.image-or-color-banner': PageImageOrColorBanner;
+      'page.intro-text': PageIntroText;
     }
   }
 }

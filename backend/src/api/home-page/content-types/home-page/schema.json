@@ -18,9 +18,9 @@
     "pageSections": {
       "type": "dynamiczone",
       "components": [
-        "dynamic.intro-text",
-        "dynamic.hero-banner",
-        "dynamic.image-or-color-banner"
+        "page.intro-text",
+        "page.image-or-color-banner",
+        "page.hero-banner"
       ]
     },
     "seo": {
