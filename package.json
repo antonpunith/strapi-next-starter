@@ -14,7 +14,11 @@
       "**/@img/**",
       "**/@img**",
       "**/libvips",
-      "backend/**"
+      "**/esbuild",
+      "**/sass",
+      "**/node-sass",
+      "backend/**",
+      "frontend/**"
     ]
   },
   "scripts": {
