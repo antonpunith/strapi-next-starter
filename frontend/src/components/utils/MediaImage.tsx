@@ -43,7 +43,7 @@ const MediaImage: React.FC<MediaImageProps> = ({
     onLoad,
     ...rest,
   };
-  if (fill || (!width && !height)) {
+  if (fill) {
     imageProps.fill = true;
   } else {
     imageProps.width = width || 300;
