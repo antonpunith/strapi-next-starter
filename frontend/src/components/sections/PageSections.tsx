@@ -1,8 +1,8 @@
 'use client';
 import React from 'react';
-import { HeroBannerSection } from './sections/HeroBannerSection';
-import { IntroTextSection } from './sections/IntroTextSection';
-import { ImageOrColorBanner } from './sections/ImageOrColorBanner';
+import { HeroBannerSection } from './HeroBannerSection';
+import { IntroTextSection } from './IntroTextSection';
+import { ImageOrColorBanner } from './ImageOrColorBanner';
 import { HeroBannerSectionType, ImageOrColorBannerType, IntroTextSectionType } from '@/lib/strapi/types';
 import { BlocksContent } from '@strapi/blocks-react-renderer';
 

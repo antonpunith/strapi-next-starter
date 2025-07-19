@@ -1,10 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./scss/globals.scss";
 import { getGlobalData } from "@/lib/globalData";
-import { Header } from '@/components/Header';
-import { Footer } from '@/components/Footer';
-import { PageClient } from "@/components/PageClient";
-import { DraftModeStatus } from '@/components/DraftModeStatus';
+import { Header, Footer, DraftModeStatus, PageClient } from '@/components/';
+
 
 // Define the type for globalData based on its expected structure
 type GlobalData = {

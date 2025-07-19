@@ -1,4 +1,4 @@
-import { PageSections } from '@/components/PageSections';
+import { PageSections } from '@/components';
 import { fetchGraphql } from '@/lib/strapi/fetchGraphql';
 import { GET_PAGE_BY_SLUG } from '@/lib/strapi/queries/pages';
 import type { InferGetStaticPropsType } from 'next'

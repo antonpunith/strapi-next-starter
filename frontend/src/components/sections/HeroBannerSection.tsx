@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-// import Image from 'next/image'
+import { MediaImage } from '@/components';
 
 interface HeroBannerSectionProps {
   section: any
@@ -14,13 +14,15 @@ export const HeroBannerSection: React.FC<HeroBannerSectionProps> = ({ section })
         {section.banner.map((item: any) => (
           <div key={`hero-banner${item.id}`} className="bg-white rounded p-3 shadow">
             <h3 className="text-lg font-bold mb-1">{item.title}</h3>
-            {/* {item.mobileImage?.url && (
-							<Image
-								src={`http://localhost:1337${item.mobileImage.url}`}
-								alt={item.mobileImage.alternativeText || item.title}
-								className="rounded mb-2"
-								/>
-						)} */}
+            {item.mobileImage?.url && (
+              <MediaImage
+                url={item.mobileImage.url}
+                alt={item.mobileImage.alternativeText || item.title}
+                width={item.mobileImage.width}
+                height={item.mobileImage.height}
+                className="rounded mb-2"
+              />
+            )}
             <p className="mb-1">{item.description}</p>
             {item.ctaText && item.ctaLink && (
               <a href={item.ctaLink} className="text-blue-600 hover:underline">
