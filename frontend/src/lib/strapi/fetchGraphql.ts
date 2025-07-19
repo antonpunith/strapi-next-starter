@@ -1,4 +1,5 @@
 import { cookies, draftMode } from "next/headers";
+import { GRAPHQL_ENDPOINT, STATUS_DRAFT, STATUS_PUBLISHED, DEFAULT_CACHE_TIME } from "./config";
 
 export function isRequestAvailable(): boolean {
   try {
@@ -13,7 +14,6 @@ export function isRequestAvailable(): boolean {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const fetchGraphql = async (query: string, variables?: Record<string, any>) => {
-  const API_URL = process.env.STRAPI_API_URL || "http://localhost:1337";
   try {
     const hasRequest = isRequestAvailable();
     let isPreview = false;
@@ -23,21 +23,21 @@ export const fetchGraphql = async (query: string, variables?: Record<string, any
       isPreview = cookieStore.get("preview")?.value === "true";
       isDraftMode = (await draftMode()).isEnabled;
     }
-    const status = isDraftMode ? "DRAFT" : "PUBLISHED";
+    const status = isDraftMode ? STATUS_DRAFT : STATUS_PUBLISHED;
 
     const body = JSON.stringify({
       query,
       variables: { ...variables, status },
     });
 
-    const response = await fetch(`${API_URL}/graphql`, {
+    const response = await fetch(GRAPHQL_ENDPOINT, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body,
       cache: isPreview ? "no-store" : "force-cache",
-      next: { revalidate: isPreview ? 0 : 3600 },
+      next: { revalidate: isPreview ? 0 : DEFAULT_CACHE_TIME },
     });
 
     if (!response.ok) {
