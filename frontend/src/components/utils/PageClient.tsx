@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-export function PageClient() {
+export const PageClient = () => {
     const router = useRouter();
 
     useEffect(() => {
