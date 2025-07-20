@@ -23,7 +23,7 @@ export default async function BlogPage() {
     <>
       <h1 className="text-4xl font-bold text-blue-700 mb-6 drop-shadow-lg">{data?.blog?.title || 'Blog'}</h1>
       <div className="w-full max-w-2xl bg-white rounded-xl shadow-lg p-6 mb-6">
-        <PageSections sections={data?.blog?.homePage?.pageSections} />
+        <PageSections sections={data?.blog?.pageSections} />
       </div>
     </>
   );
