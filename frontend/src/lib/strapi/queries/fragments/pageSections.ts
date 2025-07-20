@@ -1,5 +1,5 @@
 const PAGE_SECTIONS = `
-pageSections {
+fragment PageSections on PagePageSectionsDynamicZone {
   ... on ComponentPageHeroBanner {
     __typename
     heroTitle : title

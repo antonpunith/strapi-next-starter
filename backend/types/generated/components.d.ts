@@ -68,18 +68,6 @@ export interface BaseSeo extends Struct.ComponentSchema {
   };
 }
 
-export interface CommonSeo extends Struct.ComponentSchema {
-  collectionName: 'components_common_seos';
-  info: {
-    displayName: 'seo';
-  };
-  attributes: {
-    metaDescription: Schema.Attribute.Text;
-    metaTitle: Schema.Attribute.String;
-    shareImage: Schema.Attribute.Media<'images'>;
-  };
-}
-
 export interface PageHeroBanner extends Struct.ComponentSchema {
   collectionName: 'components_page_hero_banners';
   info: {
@@ -131,7 +119,6 @@ declare module '@strapi/strapi' {
       'base.main-nav': BaseMainNav;
       'base.nav': BaseNav;
       'base.seo': BaseSeo;
-      'common.seo': CommonSeo;
       'page.hero-banner': PageHeroBanner;
       'page.image-or-color-banner': PageImageOrColorBanner;
       'page.intro-text': PageIntroText;

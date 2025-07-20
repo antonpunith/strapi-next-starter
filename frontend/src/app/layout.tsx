@@ -8,11 +8,13 @@ import { GET_GLOBAL } from "@/lib/strapi/queries/global";
 
 // Define the type for globalData based on its expected structure
 type GlobalData = {
-  header: {
-    headerNavigation: Nav[];
-  };
-  footer: {
-    footerNavigation: Nav[];
+  global: {
+    header: {
+      headerNavigation: Nav[];
+    };
+    footer: {
+      footerNavigation: Nav[];
+    };
   };
 };
 
@@ -41,13 +43,12 @@ export default async function RootLayout({
   let footerNav: Nav[] = [];
 
   globalData = await getGraphqlData(GET_GLOBAL) as GlobalData;
-  headerNav = globalData?.header?.headerNavigation || [];
-  footerNav = globalData?.footer?.footerNavigation || [];
-
-
+  headerNav = globalData?.global?.header?.headerNavigation || [];
+  footerNav = globalData?.global?.footer?.footerNavigation || [];
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+
         <Header navigation={headerNav} />
         <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-100 flex flex-col items-center justify-center p-8">
           {children}

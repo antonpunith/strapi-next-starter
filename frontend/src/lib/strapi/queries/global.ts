@@ -1,6 +1,7 @@
+import { SEO_FRAGMENT } from "./fragments/seo";
+
 const GET_GLOBAL = `
 query ($status: PublicationStatus) {
-
   global(status: $status) {
     footer {
       footerNavigation {
@@ -19,15 +20,23 @@ query ($status: PublicationStatus) {
     }
     title
     defaultSeo {
-      metaDescription
-      metaTitle
-      shareImage {
-        url
-        alternativeText
-      }
+      ...SeoFields
     }
   }
 }
+${SEO_FRAGMENT}
 `;
 
-export { GET_GLOBAL };
+const GET_GLOBAL_SEO = `
+query ($status: PublicationStatus) {
+  global(status: $status) {
+    title
+    defaultSeo {
+      ...SeoFields
+    }
+  }
+}
+${SEO_FRAGMENT}
+`;
+
+export { GET_GLOBAL, GET_GLOBAL_SEO };

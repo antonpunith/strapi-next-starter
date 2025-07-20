@@ -25,7 +25,7 @@
     },
     "seo": {
       "type": "component",
-      "component": "common.seo",
+      "component": "base.seo",
       "repeatable": false
     }
   }

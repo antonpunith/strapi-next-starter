@@ -458,7 +458,11 @@ export interface ApiBlogBlog extends Struct.SingleTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'> &
       Schema.Attribute.Private;
+    pageSections: Schema.Attribute.DynamicZone<
+      ['page.intro-text', 'page.image-or-color-banner', 'page.hero-banner']
+    >;
     publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'base.seo', false>;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'Blog'>;
@@ -482,7 +486,7 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    defaultSeo: Schema.Attribute.Component<'base.seo', true>;
+    defaultSeo: Schema.Attribute.Component<'base.seo', false>;
     footer: Schema.Attribute.Component<'base.footer', false>;
     header: Schema.Attribute.Component<'base.header', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -523,7 +527,7 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
       ['page.intro-text', 'page.image-or-color-banner', 'page.hero-banner']
     >;
     publishedAt: Schema.Attribute.DateTime;
-    seo: Schema.Attribute.Component<'common.seo', false>;
+    seo: Schema.Attribute.Component<'base.seo', false>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -552,7 +556,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
       ['page.intro-text', 'page.image-or-color-banner', 'page.hero-banner']
     >;
     publishedAt: Schema.Attribute.DateTime;
-    seo: Schema.Attribute.Component<'common.seo', false>;
+    seo: Schema.Attribute.Component<'base.seo', false>;
     slug: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;

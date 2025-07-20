@@ -1,5 +1,10 @@
 import { cookies, draftMode } from "next/headers";
-import { GRAPHQL_ENDPOINT, STATUS_DRAFT, STATUS_PUBLISHED, DEFAULT_CACHE_TIME } from "./config";
+import {
+  GRAPHQL_ENDPOINT,
+  STATUS_DRAFT,
+  STATUS_PUBLISHED,
+  DEFAULT_CACHE_TIME,
+} from "./config";
 
 export function isRequestAvailable(): boolean {
   try {
@@ -13,7 +18,10 @@ export function isRequestAvailable(): boolean {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const fetchGraphql = async (query: string, variables?: Record<string, any>) => {
+export const fetchGraphql = async (
+  query: string,
+  variables?: Record<string, unknown>
+) => {
   try {
     const hasRequest = isRequestAvailable();
     let isPreview = false;
@@ -41,13 +49,17 @@ export const fetchGraphql = async (query: string, variables?: Record<string, any
     });
 
     if (!response.ok) {
-      throw new Error(`GraphQL request failed with status ${response.status}`);
+      throw new Error(
+        `GraphQL request failed with status ${response.status} ${JSON.stringify(
+          { query, variables }
+        )}`
+      );
     }
 
     const result = await response.json();
     return result.data;
   } catch (error) {
-    console.error('GraphQL fetch error:', error);
+    console.error("GraphQL fetch error:", error);
     return null;
   }
-}
+};

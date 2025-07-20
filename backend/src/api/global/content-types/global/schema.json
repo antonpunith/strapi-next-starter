@@ -24,7 +24,7 @@
     "defaultSeo": {
       "type": "component",
       "component": "base.seo",
-      "repeatable": true
+      "repeatable": false
     },
     "title": {
       "type": "string",

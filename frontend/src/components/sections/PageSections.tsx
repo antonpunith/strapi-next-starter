@@ -9,13 +9,14 @@ import { BlocksContent } from '@strapi/blocks-react-renderer';
 export type PageSection =
   | (HeroBannerSectionType & { __typename: 'ComponentPageHeroBanner' })
   | (IntroTextSectionType & { __typename: 'ComponentPageIntroText' })
-  | (ImageOrColorBannerType & { __typename: 'ComponentPageImageOrColorBanner'});
+  | (ImageOrColorBannerType & { __typename: 'ComponentPageImageOrColorBanner' });
 
 interface PageSectionsProps {
   sections: PageSection[];
 }
 
 export const PageSections: React.FC<PageSectionsProps> = ({ sections }) => {
+  if (!sections || sections.length === 0) return null;
   return (
     <div className="space-y-6">
       {sections.map((section, idx) => {
