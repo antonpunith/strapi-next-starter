@@ -1,5 +1,5 @@
 import { PageSections } from '@/components';
-import { fetchGraphql } from '@/lib/strapi/fetchGraphql';
+import { getGraphqlData } from '@/lib/graphql';
 import { GET_PAGE_BY_SLUG } from '@/lib/strapi/queries/pages';
 import type { InferGetStaticPropsType } from 'next'
 import { getStaticProps } from 'next/dist/build/templates/pages';
@@ -7,7 +7,7 @@ import { getStaticProps } from 'next/dist/build/templates/pages';
 
 export default async function Page({ params }: InferGetStaticPropsType<typeof getStaticProps>) {
   const { slug } = await params;
-  const data = await fetchGraphql(GET_PAGE_BY_SLUG, { slug });
+  const data = await getGraphqlData(GET_PAGE_BY_SLUG, { slug });
   const pageData = data?.pages?.[0];
 
   return (

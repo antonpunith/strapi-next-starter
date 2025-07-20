@@ -1,9 +1,10 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./scss/globals.scss";
-import { getGlobalData } from "@/lib/globalData";
 import { Header, Footer, PageClient } from '@/components/';
 
 import { DraftModeStatus } from '@/components/utils/DraftModeStatus'; // Ensure this import is correct
+import { getGraphqlData } from "@/lib/graphql";
+import { GET_GLOBAL } from "@/lib/strapi/queries/global";
 
 // Define the type for globalData based on its expected structure
 type GlobalData = {
@@ -39,9 +40,10 @@ export default async function RootLayout({
   let headerNav: Nav[] = [];
   let footerNav: Nav[] = [];
 
-  globalData = await getGlobalData() as GlobalData;
+  globalData = await getGraphqlData(GET_GLOBAL) as GlobalData;
   headerNav = globalData?.header?.headerNavigation || [];
   footerNav = globalData?.footer?.footerNavigation || [];
+
 
   return (
     <html lang="en">
