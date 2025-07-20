@@ -1,11 +1,9 @@
 // lib/globalData.ts
 import { cache } from "react";
-import { fetchFromStrapi } from "@/lib/strapi/fetchFromStrapi";
+import { fetchGraphql } from "@/lib/strapi/fetchGraphql";
+import { GET_GLOBAL } from "@/lib/strapi/queries/global";
 
 export const getGlobalData = cache(async () => {
-  return await fetchFromStrapi("global", {
-    header: { populate: "*" },
-    footer: { populate: "*" },
-  });
+  const response = await fetchGraphql(GET_GLOBAL);
+  return response?.global || {};
 });
-

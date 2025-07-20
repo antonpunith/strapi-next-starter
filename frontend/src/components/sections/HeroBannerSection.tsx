@@ -1,9 +1,25 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import React from 'react';
 import { MediaImage } from '@/components';
+import React from 'react';
+
+interface BannerItem {
+  id: string | number;
+  title: string;
+  description?: string;
+  mobileImage?: {
+    url: string;
+    alternativeText?: string;
+    width?: number;
+    height?: number;
+  };
+  ctaText?: string;
+  ctaLink?: string;
+}
 
 interface HeroBannerSectionProps {
-  section: any
+  section: {
+    heroTitle: string;
+    banner?: BannerItem[];
+  };
 }
 
 export const HeroBannerSection: React.FC<HeroBannerSectionProps> = ({ section }) => (
@@ -11,7 +27,7 @@ export const HeroBannerSection: React.FC<HeroBannerSectionProps> = ({ section })
     <h2>{section.heroTitle}</h2>
     {section.banner && Array.isArray(section.banner) && (
       <div className="mt-4 space-y-4">
-        {section.banner.map((item: any) => (
+        {section.banner.map((item: BannerItem) => (
           <div key={`hero-banner${item.id}`} className="bg-white rounded p-3 shadow">
             <h3 className="text-lg font-bold mb-1">{item.title}</h3>
             {item.mobileImage?.url && (

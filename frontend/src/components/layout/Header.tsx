@@ -12,9 +12,9 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({ navigation }) => (
-  <header className="w-full bg-white shadow mb-8">
+  <header className="w-full bg-white shadow">
     <nav className="container mx-auto px-4 py-4">
-      <ul className="flex gap-6">
+      <ul className="flex gap-6 mb-0 list-none">
         <li>
           <Link
             href="/"

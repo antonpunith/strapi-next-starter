@@ -11,9 +11,9 @@ interface FooterProps {
 }
 
 export const Footer: React.FC<FooterProps> = ({ navigation }) => (
-  <footer className="w-full bg-gray-100 shadow mt-8">
+  <footer className="w-full bg-gray-100 shadow">
     <nav className="container mx-auto px-4 py-4">
-      <ul className="flex gap-6 justify-center">
+      <ul className="flex gap-6 justify-center list-none">
         {navigation.map((item) => (
           <li key={item.id}>
             <a

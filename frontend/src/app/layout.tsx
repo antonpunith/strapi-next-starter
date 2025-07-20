@@ -35,14 +35,23 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const globalData = await getGlobalData() as GlobalData;
+  let globalData: GlobalData | null = null;
+  let headerNav: Nav[] = [];
+  let footerNav: Nav[] = [];
+
+  globalData = await getGlobalData() as GlobalData;
+  headerNav = globalData?.header?.headerNavigation || [];
+  footerNav = globalData?.footer?.footerNavigation || [];
+
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <Header navigation={globalData.header.headerNavigation} />
-        {children}
-        <DraftModeStatus />
-        <Footer navigation={globalData.footer.footerNavigation} />
+        <Header navigation={headerNav} />
+        <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-100 flex flex-col items-center justify-center p-8">
+          {children}
+          {process.env.NODE_ENV === 'development' && <DraftModeStatus />}
+        </div>
+        <Footer navigation={footerNav} />
         <PageClient />
       </body>
     </html>
