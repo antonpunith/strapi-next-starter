@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./scss/globals.scss";
 import { Header, Footer, PageClient } from '@/components/';
+import { MainContainer } from '@/components';
 
 import { DraftModeStatus } from '@/components/utils/DraftModeStatus'; // Ensure this import is correct
 import { getGraphqlData } from "@/lib/graphql";
@@ -50,10 +51,10 @@ export default async function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
 
         <Header navigation={headerNav} />
-        <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-100 flex flex-col items-center justify-center p-8">
+        <MainContainer>
           {children}
           {process.env.NODE_ENV === 'development' && <DraftModeStatus />}
-        </div>
+        </MainContainer>
         <Footer navigation={footerNav} />
         <PageClient />
       </body>

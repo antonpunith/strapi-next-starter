@@ -5,6 +5,7 @@ import { IntroTextSection } from './IntroTextSection';
 import { ImageOrColorBanner } from './ImageOrColorBanner';
 import { HeroBannerSectionType, ImageOrColorBannerType, IntroTextSectionType } from '@/lib/strapi/types';
 import { BlocksContent } from '@strapi/blocks-react-renderer';
+import { SectionsContainer } from '@/components';
 
 export type PageSection =
   | (HeroBannerSectionType & { __typename: 'ComponentPageHeroBanner' })
@@ -18,7 +19,7 @@ interface PageSectionsProps {
 export const PageSections: React.FC<PageSectionsProps> = ({ sections }) => {
   if (!sections || sections.length === 0) return null;
   return (
-    <div className="space-y-6">
+    <SectionsContainer>
       {sections.map((section, idx) => {
         if (section.__typename === 'ComponentPageHeroBanner') {
           return <HeroBannerSection key={`hero-banner-${section.id}` || idx} section={section} />;
@@ -31,6 +32,6 @@ export const PageSections: React.FC<PageSectionsProps> = ({ sections }) => {
         }
         return null;
       })}
-    </div>
+    </SectionsContainer>
   );
 };
