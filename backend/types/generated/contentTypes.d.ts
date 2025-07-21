@@ -521,6 +521,12 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    fullWidthBanner: Schema.Attribute.Component<
+      'page.full-width-banner',
+      false
+    >;
+    heroBanner: Schema.Attribute.Component<'page.hero-banner', false>;
+    intro: Schema.Attribute.Component<'page.intro-text', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

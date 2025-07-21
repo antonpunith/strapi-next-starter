@@ -1,5 +1,4 @@
-import { PageSections } from '@/components';
-import { Heading } from '@/components/ui/Heading';
+import { Heading, HeroBannerSection, PageSections } from '@/components';
 import { getGraphqlData } from '@/lib/graphql';
 import { GET_GLOBAL_SEO } from '@/lib/strapi/queries/global';
 import { GET_HOME } from '@/lib/strapi/queries/home';
@@ -19,10 +18,12 @@ export async function generateMetadata() {
 
 const HomePage = async () => {
   const data = await getGraphqlData(GET_HOME);
+  const homePage = data?.homePage;
   return (
     <>
-      <Heading>{data?.homePage?.title || 'Home'}</Heading>
-      <PageSections sections={data?.homePage?.pageSections} />
+      <Heading>{homePage?.title || 'Home'}</Heading>
+      <HeroBannerSection section={homePage?.heroBanner} />
+      <PageSections sections={homePage?.pageSections} />
     </>
   );
 }

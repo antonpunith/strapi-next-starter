@@ -68,6 +68,26 @@ export interface BaseSeo extends Struct.ComponentSchema {
   };
 }
 
+export interface PageFullWidthBanner extends Struct.ComponentSchema {
+  collectionName: 'components_page_full_width_banners';
+  info: {
+    description: 'A banner that can display a full-width image or muted video with text and a call to action.';
+    displayName: 'Full width Banner';
+  };
+  attributes: {
+    backgroundColor: Schema.Attribute.String;
+    backgroundType: Schema.Attribute.Enumeration<['image', 'video', 'color']> &
+      Schema.Attribute.DefaultTo<'image'>;
+    ctaLink: Schema.Attribute.String;
+    ctaText: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    textColor: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    video: Schema.Attribute.Media<'videos'>;
+  };
+}
+
 export interface PageHeroBanner extends Struct.ComponentSchema {
   collectionName: 'components_page_hero_banners';
   info: {
@@ -119,6 +139,7 @@ declare module '@strapi/strapi' {
       'base.main-nav': BaseMainNav;
       'base.nav': BaseNav;
       'base.seo': BaseSeo;
+      'page.full-width-banner': PageFullWidthBanner;
       'page.hero-banner': PageHeroBanner;
       'page.image-or-color-banner': PageImageOrColorBanner;
       'page.intro-text': PageIntroText;

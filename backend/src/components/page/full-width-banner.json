@@ -1,0 +1,47 @@
+{
+  "collectionName": "components_page_full_width_banners",
+  "info": {
+    "displayName": "Full width Banner",
+    "description": "A banner that can display a full-width image or muted video with text and a call to action."
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "backgroundType": {
+      "type": "enumeration",
+      "default": "image",
+      "enum": ["image", "video", "color"]
+    },
+    "description": {
+      "type": "text"
+    },
+    "ctaText": {
+      "type": "string"
+    },
+    "ctaLink": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "video": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["videos"]
+    },
+    "backgroundColor": {
+      "type": "string",
+      "regex": "^(#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})|rgb\\(\\s*\\d+\\s*,\\s*\\d+\\s*,\\s*\\d+\\s*\\))$"
+    },
+    "textColor": {
+      "type": "string",
+      "regex": "^(#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})|rgb\\(\\s*\\d+\\s*,\\s*\\d+\\s*,\\s*\\d+\\s*\\))$"
+    }
+  },
+  "config": {}
+}

@@ -15,6 +15,21 @@
       "type": "string",
       "required": true
     },
+    "heroBanner": {
+      "type": "component",
+      "component": "page.hero-banner",
+      "repeatable": false
+    },
+    "intro": {
+      "type": "component",
+      "component": "page.intro-text",
+      "repeatable": false
+    },
+    "fullWidthBanner": {
+      "type": "component",
+      "component": "page.full-width-banner",
+      "repeatable": false
+    },
     "pageSections": {
       "type": "dynamiczone",
       "components": [

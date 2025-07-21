@@ -1,3 +1,4 @@
+// Always import BANNER_FRAGMENT since use ...BannerFields in this fragment
 const PAGE_SECTIONS = `
 fragment PageSections on PagePageSectionsDynamicZone {
   ... on ComponentPageHeroBanner {
@@ -5,18 +6,7 @@ fragment PageSections on PagePageSectionsDynamicZone {
     heroTitle : title
     speed
     banner {
-        ctaLink
-        ctaText
-        description
-        title
-        desktopImage {
-        url
-        alternativeText
-        }
-        mobileImage {
-        url
-        alternativeText
-        }
+      ...BannerFields
     }
   }
   ... on ComponentPageIntroText {

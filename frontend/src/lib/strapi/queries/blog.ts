@@ -1,3 +1,4 @@
+import { BANNER_FRAGMENT } from "./fragments/banner";
 import { PAGE_SECTIONS } from "./fragments/pageSections";
 import { SEO_FRAGMENT } from "./fragments/seo";
 
@@ -18,6 +19,7 @@ query ($status: PublicationStatus) {
   }
 }
 ${PAGE_SECTIONS}
+${BANNER_FRAGMENT}
 ${SEO_FRAGMENT}
 `;
 
