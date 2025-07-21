@@ -12,6 +12,9 @@ query ($slug: String, $status: PublicationStatus) {
     heroBanner {
       ...HeroBannerSectionFields
     }
+    intro {
+      ...IntroTextSectionFields
+    }
     pageSections {
       ...PageSections
     }
@@ -20,10 +23,10 @@ query ($slug: String, $status: PublicationStatus) {
     }
   }
 }
-${INTRO_TEXT_SECTION_FRAGMENT}
-${HERO_BANNER_SECTION_FRAGMENT}
-${PAGE_SECTIONS}
 ${BANNER_FRAGMENT}
+${HERO_BANNER_SECTION_FRAGMENT}
+${INTRO_TEXT_SECTION_FRAGMENT}
+${PAGE_SECTIONS}
 ${SEO_FRAGMENT}
 `;
 

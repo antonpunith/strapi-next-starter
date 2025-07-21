@@ -11,6 +11,9 @@ query ($status: PublicationStatus) {
     heroBanner {
       ...HeroBannerSectionFields
     }
+    intro {
+      ...IntroTextSectionFields
+    }
     pageSections {
       ...PageSections
     }

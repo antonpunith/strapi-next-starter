@@ -1,4 +1,4 @@
-import { Heading, HeroBannerSection, PageSections, SectionsContainer } from '@/components';
+import { Heading, HeroBannerSection, IntroTextSection, PageSections, SectionsContainer } from '@/components';
 import { NavList } from '@/components/ui/NavList';
 import { getGraphqlData } from '@/lib/graphql';
 import { fetchGraphql } from '@/lib/strapi/fetchGraphql';
@@ -27,6 +27,7 @@ export default async function BlogPage() {
     <>
       <Heading>{blogData?.title || 'Blog'}</Heading>
       <HeroBannerSection section={blogData?.heroBanner} />
+      <IntroTextSection {...blogData?.intro} />
       <PageSections sections={blogData?.pageSections} />
       {articles && articles.length > 0 && (
         <SectionsContainer>

@@ -8,11 +8,11 @@ const GET_HOME = `
 query ($status: PublicationStatus) {
   homePage(status: $status) {
     title
-    intro {
-      ...IntroTextSectionFields
-    }
     heroBanner {
       ...HeroBannerSectionFields
+    }
+    intro {
+      ...IntroTextSectionFields
     }
     pageSections {
       ...PageSections

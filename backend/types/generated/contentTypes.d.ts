@@ -461,6 +461,7 @@ export interface ApiBlogBlog extends Struct.SingleTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     heroBanner: Schema.Attribute.Component<'page.hero-banner', false>;
+    intro: Schema.Attribute.Component<'page.intro-text', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'> &
       Schema.Attribute.Private;
@@ -567,11 +568,17 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     heroBanner: Schema.Attribute.Component<'page.hero-banner', false>;
+    intro: Schema.Attribute.Component<'page.intro-text', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::page.page'> &
       Schema.Attribute.Private;
     pageSections: Schema.Attribute.DynamicZone<
-      ['page.intro-text', 'page.image-or-color-banner', 'page.hero-banner']
+      [
+        'page.intro-text',
+        'page.image-or-color-banner',
+        'page.hero-banner',
+        'page.full-width-banner',
+      ]
     >;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'base.seo', false>;

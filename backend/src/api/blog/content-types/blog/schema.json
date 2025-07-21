@@ -21,6 +21,11 @@
       "component": "page.hero-banner",
       "repeatable": false
     },
+    "intro": {
+      "type": "component",
+      "component": "page.intro-text",
+      "repeatable": false
+    },
     "pageSections": {
       "type": "dynamiczone",
       "components": [

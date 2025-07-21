@@ -20,13 +20,15 @@ const HomePage = async () => {
   const data = await getGraphqlData(GET_HOME);
   const homePage = data?.homePage;
 
+  if (!homePage) {
+    return <Heading>Home Page Not Found</Heading>;
+  }
+
   return (
     <>
       <Heading>{homePage?.title || 'Home'}</Heading>
-      {homePage?.heroBanner && <HeroBannerSection {...homePage.heroBanner} />}
-      {homePage?.intro && homePage.intro.title && (
-        <IntroTextSection {...homePage.intro} />
-      )}
+      <HeroBannerSection {...homePage.heroBanner} />
+      <IntroTextSection {...homePage.intro} />
       {homePage?.pageSections && homePage.pageSections.length > 0 && (
         <PageSections sections={homePage.pageSections} />
       )}

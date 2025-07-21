@@ -25,12 +25,18 @@
       "component": "page.hero-banner",
       "repeatable": false
     },
+    "intro": {
+      "type": "component",
+      "component": "page.intro-text",
+      "repeatable": false
+    },
     "pageSections": {
       "type": "dynamiczone",
       "components": [
         "page.intro-text",
         "page.image-or-color-banner",
-        "page.hero-banner"
+        "page.hero-banner",
+        "page.full-width-banner"
       ]
     },
     "seo": {
