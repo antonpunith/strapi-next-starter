@@ -19,6 +19,19 @@
       "type": "string",
       "required": true,
       "unique": true
+    },
+    "pageSections": {
+      "type": "dynamiczone",
+      "components": [
+        "page.intro-text",
+        "page.image-or-color-banner",
+        "page.hero-banner"
+      ]
+    },
+    "seo": {
+      "type": "component",
+      "component": "base.seo",
+      "repeatable": false
     }
   }
 }
