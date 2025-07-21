@@ -24,7 +24,10 @@
   "scripts": {
     "dev:frontend": "npm --workspace frontend run dev",
     "dev:backend": "npm --workspace backend run develop",
-    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\""
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "build:frontend": "npm --workspace frontend run build",
+    "start:backend": "npm --workspace backend run start",
+    "build": "concurrently -k -s first -c 'bgBlue.bold,bgGreen.bold' \"npm run start:backend\" \"npm run build:frontend && pkill -f 'strapi'\""
   },
   "keywords": [],
   "author": "",

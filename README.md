@@ -93,6 +93,27 @@ strapi-next-starter/
 
 MIT
 
+## Contributing
+
+Before raising a pull request, please:
+
+- Ensure your code follows the existing style and passes linting/formatting checks.
+- Run the project in development mode to verify both backend and frontend work:
+  ```bash
+  yarn dev
+  # or
+  npm run dev
+  ```
+- Build the project to ensure production builds succeed:
+  ```bash
+  yarn build
+  # or
+  npm run build
+  ```
+- Test your changes in both development and production modes.
+
+Thank you for contributing!
+
 ---
 
 Built with ❤️ using Strapi, Next.js, and TypeScript.
