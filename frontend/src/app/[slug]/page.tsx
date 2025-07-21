@@ -1,5 +1,5 @@
 // app/[slug]/page.tsx
-import { Heading, PageSections } from '@/components';
+import { Heading, HeroBannerSection, PageSections } from '@/components';
 import { getGraphqlData } from '@/lib/graphql';
 import { GET_GLOBAL_SEO } from '@/lib/strapi/queries/global';
 import { GET_PAGE_BY_SLUG } from '@/lib/strapi/queries/pages';
@@ -29,6 +29,7 @@ export default async function Page({ params }: InferGetStaticPropsType<typeof ge
   return (
     <>
       <Heading>{pageData.title}</Heading>
+      <HeroBannerSection section={pageData.heroBanner} />
       <PageSections sections={pageData.pageSections} />
     </>
   );

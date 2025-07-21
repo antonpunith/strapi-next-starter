@@ -1,4 +1,5 @@
 import { BANNER_FRAGMENT } from "./fragments/banner";
+import { HERO_BANNER_SECTION_FRAGMENT } from "./fragments/heroBannerSection";
 import { PAGE_SECTIONS } from "./fragments/pageSections";
 import { SEO_FRAGMENT } from "./fragments/seo";
 
@@ -15,6 +16,7 @@ query ($slug: String, $status: PublicationStatus) {
       }
   }
 }
+${HERO_BANNER_SECTION_FRAGMENT}
 ${PAGE_SECTIONS}
 ${BANNER_FRAGMENT}
 ${SEO_FRAGMENT}

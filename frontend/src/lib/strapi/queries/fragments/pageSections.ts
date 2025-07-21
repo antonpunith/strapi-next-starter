@@ -2,12 +2,7 @@
 const PAGE_SECTIONS = `
 fragment PageSections on PagePageSectionsDynamicZone {
   ... on ComponentPageHeroBanner {
-    __typename
-    heroTitle : title
-    speed
-    banner {
-      ...BannerFields
-    }
+    ...HeroBannerSectionFields
   }
   ... on ComponentPageIntroText {
     __typename

@@ -424,6 +424,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    heroBanner: Schema.Attribute.Component<'page.hero-banner', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -459,6 +460,7 @@ export interface ApiBlogBlog extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    heroBanner: Schema.Attribute.Component<'page.hero-banner', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'> &
       Schema.Attribute.Private;
@@ -559,6 +561,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    heroBanner: Schema.Attribute.Component<'page.hero-banner', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::page.page'> &
       Schema.Attribute.Private;

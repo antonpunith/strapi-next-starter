@@ -20,6 +20,11 @@
       "required": true,
       "unique": true
     },
+    "heroBanner": {
+      "type": "component",
+      "component": "page.hero-banner",
+      "repeatable": false
+    },
     "pageSections": {
       "type": "dynamiczone",
       "components": [
