@@ -1,12 +1,14 @@
-import { Heading, PageSections } from '@/components';
+import { Heading, PageSections, SectionsContainer } from '@/components';
+import { NavList } from '@/components/ui/NavList';
 import { getGraphqlData } from '@/lib/graphql';
-import { GET_BLOG } from '@/lib/strapi/queries/blog';
+import { fetchGraphql } from '@/lib/strapi/fetchGraphql';
+import { GET_BLOG_ARTICLES } from '@/lib/strapi/queries/blog';
 import { GET_GLOBAL_SEO } from '@/lib/strapi/queries/global';
 
 
 export async function generateMetadata() {
   const [pageData, global] = await Promise.all([
-    getGraphqlData(GET_BLOG),
+    fetchGraphql(GET_BLOG_ARTICLES),
     getGraphqlData(GET_GLOBAL_SEO),
   ]);
   const pageSeo = pageData?.blog?.seo;
@@ -18,11 +20,19 @@ export async function generateMetadata() {
 }
 
 export default async function BlogPage() {
-  const data = await getGraphqlData(GET_BLOG);
+  const data = await fetchGraphql(GET_BLOG_ARTICLES);
+  const blogData = data?.blog;
+  const articles = data?.articles || [];
   return (
     <>
-      <Heading>{data?.blog?.title || 'Blog'}</Heading>
-      <PageSections sections={data?.blog?.pageSections} />
+      <Heading>{blogData?.title || 'Blog'}</Heading>
+      <PageSections sections={blogData?.pageSections} />
+      {articles && articles.length > 0 && (
+        <SectionsContainer>
+          <NavList items={articles} />
+        </SectionsContainer>
+      )}
+
     </>
   );
 }

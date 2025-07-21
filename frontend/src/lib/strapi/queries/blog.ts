@@ -1,7 +1,7 @@
 import { PAGE_SECTIONS } from "./fragments/pageSections";
 import { SEO_FRAGMENT } from "./fragments/seo";
 
-const GET_BLOG = `
+const GET_BLOG_ARTICLES = `
 query ($status: PublicationStatus) {
   blog(status: $status) {
     title
@@ -12,9 +12,13 @@ query ($status: PublicationStatus) {
       ...SeoFields
     }
   }
+  articles {
+    slug
+    title
+  }
 }
 ${PAGE_SECTIONS}
 ${SEO_FRAGMENT}
 `;
 
-export { GET_BLOG };
+export { GET_BLOG_ARTICLES };
