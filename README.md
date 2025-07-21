@@ -76,9 +76,12 @@ npm run dev
 - Strapi and Next.js are kept up-to-date with the latest stable releases.
 - For image optimization, Next.js is configured to allow images from `localhost` (see `next.config.ts`).
 - GraphQL is enabled in Strapi by default (see `backend/config/plugins.ts`).
-- If you see errors related to image processing or `sharp`, use:
-  ```bash
-  yarn add sharp --ignore-platform
+- **Cloudinary**: To use Cloudinary for media uploads, set up a free account at [cloudinary.com](https://cloudinary.com/), then update your `.env` files as per the example below:
+
+  ```env
+  CLOUDINARY_NAME=<Cloudinary-cloud-name>
+  CLOUDINARY_KEY=<Cloudinary-api-key>
+  CLOUDINARY_SECRET=<Cloudinary-secret-key>
   ```
 
 ## Folder Structure
