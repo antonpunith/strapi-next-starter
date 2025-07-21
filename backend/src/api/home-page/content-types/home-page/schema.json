@@ -35,7 +35,8 @@
       "components": [
         "page.intro-text",
         "page.image-or-color-banner",
-        "page.hero-banner"
+        "page.hero-banner",
+        "page.full-width-banner"
       ]
     },
     "seo": {

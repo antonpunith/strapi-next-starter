@@ -1,5 +1,5 @@
 // app/blog/[slug]/page.tsx
-import { Heading, PageSections } from '@/components';
+import { Heading, HeroBannerSection, PageSections } from '@/components';
 import { getGraphqlData } from '@/lib/graphql';
 import { GET_ARTICLES_BY_SLUG } from '@/lib/strapi/queries/articles';
 import { GET_GLOBAL_SEO } from '@/lib/strapi/queries/global';
@@ -29,6 +29,7 @@ export default async function Article({ params }: InferGetStaticPropsType<typeof
   return (
     <>
       <Heading>{pageData.title}</Heading>
+      <HeroBannerSection section={pageData.heroBanner} />
       <PageSections sections={pageData.pageSections} />
     </>
   );

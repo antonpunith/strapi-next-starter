@@ -536,7 +536,12 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     pageSections: Schema.Attribute.DynamicZone<
-      ['page.intro-text', 'page.image-or-color-banner', 'page.hero-banner']
+      [
+        'page.intro-text',
+        'page.image-or-color-banner',
+        'page.hero-banner',
+        'page.full-width-banner',
+      ]
     >;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'base.seo', false>;

@@ -56,6 +56,20 @@ export interface BaseNav extends Struct.ComponentSchema {
   };
 }
 
+export interface BasePromoContent extends Struct.ComponentSchema {
+  collectionName: 'components_base_promo_contents';
+  info: {
+    displayName: 'Promo Content';
+  };
+  attributes: {
+    caption: Schema.Attribute.String;
+    ctaLink: Schema.Attribute.String;
+    ctaText: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface BaseSeo extends Struct.ComponentSchema {
   collectionName: 'components_base_seos';
   info: {
@@ -78,12 +92,9 @@ export interface PageFullWidthBanner extends Struct.ComponentSchema {
     backgroundColor: Schema.Attribute.String;
     backgroundType: Schema.Attribute.Enumeration<['image', 'video', 'color']> &
       Schema.Attribute.DefaultTo<'image'>;
-    ctaLink: Schema.Attribute.String;
-    ctaText: Schema.Attribute.String;
-    description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
+    promoText: Schema.Attribute.Component<'base.promo-content', false>;
     textColor: Schema.Attribute.String;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
     video: Schema.Attribute.Media<'videos'>;
   };
 }
@@ -138,6 +149,7 @@ declare module '@strapi/strapi' {
       'base.header': BaseHeader;
       'base.main-nav': BaseMainNav;
       'base.nav': BaseNav;
+      'base.promo-content': BasePromoContent;
       'base.seo': BaseSeo;
       'page.full-width-banner': PageFullWidthBanner;
       'page.hero-banner': PageHeroBanner;

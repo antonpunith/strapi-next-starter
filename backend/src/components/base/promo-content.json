@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_base_promo_contents",
+  "info": {
+    "displayName": "Promo Content"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "ctaText": {
+      "type": "string"
+    },
+    "ctaLink": {
+      "type": "string"
+    },
+    "caption": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

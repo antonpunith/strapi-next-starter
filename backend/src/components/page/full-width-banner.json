@@ -6,33 +6,28 @@
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string",
-      "required": true
-    },
     "backgroundType": {
       "type": "enumeration",
       "default": "image",
-      "enum": ["image", "video", "color"]
-    },
-    "description": {
-      "type": "text"
-    },
-    "ctaText": {
-      "type": "string"
-    },
-    "ctaLink": {
-      "type": "string"
+      "enum": [
+        "image",
+        "video",
+        "color"
+      ]
     },
     "image": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "video": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["videos"]
+      "allowedTypes": [
+        "videos"
+      ]
     },
     "backgroundColor": {
       "type": "string",
@@ -41,6 +36,11 @@
     "textColor": {
       "type": "string",
       "regex": "^(#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})|rgb\\(\\s*\\d+\\s*,\\s*\\d+\\s*,\\s*\\d+\\s*\\))$"
+    },
+    "promoText": {
+      "type": "component",
+      "component": "base.promo-content",
+      "repeatable": false
     }
   },
   "config": {}

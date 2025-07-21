@@ -14,6 +14,7 @@ export { Heading } from "./ui/Heading"; // Page or section heading
 // Section components
 export { PageSections } from "./sections/PageSections"; // Renders dynamic page sections
 export { HeroBannerSection } from "./sections/HeroBannerSection"; // Hero banner section
+export { IntroTextSection } from "./sections/IntroTextSection"; // Intro text section
 
 // Utility components
 export { PageClient } from "./utils/PageClient"; // Client-only logic

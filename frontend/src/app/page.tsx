@@ -1,4 +1,4 @@
-import { Heading, HeroBannerSection, PageSections } from '@/components';
+import { Heading, HeroBannerSection, IntroTextSection, PageSections } from '@/components';
 import { getGraphqlData } from '@/lib/graphql';
 import { GET_GLOBAL_SEO } from '@/lib/strapi/queries/global';
 import { GET_HOME } from '@/lib/strapi/queries/home';
@@ -19,13 +19,19 @@ export async function generateMetadata() {
 const HomePage = async () => {
   const data = await getGraphqlData(GET_HOME);
   const homePage = data?.homePage;
+
   return (
     <>
       <Heading>{homePage?.title || 'Home'}</Heading>
-      <HeroBannerSection section={homePage?.heroBanner} />
-      <PageSections sections={homePage?.pageSections} />
+      {homePage?.heroBanner && <HeroBannerSection {...homePage.heroBanner} />}
+      {homePage?.intro && homePage.intro.title && (
+        <IntroTextSection {...homePage.intro} />
+      )}
+      {homePage?.pageSections && homePage.pageSections.length > 0 && (
+        <PageSections sections={homePage.pageSections} />
+      )}
     </>
   );
-}
+};
 
 export default HomePage;

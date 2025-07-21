@@ -5,11 +5,7 @@ fragment PageSections on PagePageSectionsDynamicZone {
     ...HeroBannerSectionFields
   }
   ... on ComponentPageIntroText {
-    __typename
-    introTitle: title
-    ctaText
-    ctaLink
-    content
+    ...IntroTextSectionFields
   }
   ... on ComponentPageImageOrColorBanner {
     __typename
