@@ -92,6 +92,24 @@ strapi-next-starter/
   frontend/   # Next.js app
 ```
 
+## Fonts
+
+Fonts are loaded using Next.js's built-in [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) module, which provides automatic optimization and scoped CSS variables. This is handled in [`frontend/lib/fonts.ts`](frontend/lib/fonts.ts).
+
+By default:
+
+- `font-sans` is used for body text
+- `font-heading` (optional) can be used for headings
+
+These font roles are mapped via Tailwind's `fontFamily` config using CSS variables. You can change fonts per project by simply updating the font definitions in `fonts.ts`.
+
+**Example usage:**
+
+```tsx
+<h1 className="font-heading text-4xl">Page Title</h1>
+<p className="font-sans">Body text</p>
+```
+
 ## License
 
 MIT
@@ -107,6 +125,9 @@ Before raising a pull request, please:
   # or
   npm run dev
   ```
+
+````
+
 - Build the project to ensure production builds succeed:
   ```bash
   yarn build
@@ -120,3 +141,4 @@ Thank you for contributing!
 ---
 
 Built with ❤️ using Strapi, Next.js, and TypeScript.
+````

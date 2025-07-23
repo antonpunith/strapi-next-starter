@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { fontSans, fontHeading } from '@/lib/fonts';
 import "./scss/globals.scss";
 import { Header, Footer, PageClient } from '@/components/';
 import { MainContainer } from '@/components';
@@ -23,15 +23,6 @@ interface Nav {
   id: string; title: string; slug: string
 }
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 
 export default async function RootLayout({
@@ -48,7 +39,7 @@ export default async function RootLayout({
   footerNav = globalData?.global?.footer?.footerNavigation || [];
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${fontSans.variable} ${fontHeading.variable} antialiased`}>
 
         <Header navigation={headerNav} />
         <MainContainer>
