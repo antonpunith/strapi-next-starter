@@ -24,6 +24,11 @@ query ($status: PublicationStatus) {
           slug
         }
       }
+      secondaryNav {
+        id
+        slug
+        title
+      }
     }
     title
     defaultSeo {

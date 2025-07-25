@@ -47,15 +47,8 @@ export interface BaseHeader extends Struct.ComponentSchema {
   };
   attributes: {
     headerNavigation: Schema.Attribute.Component<'base.nav', true>;
+    secondaryNav: Schema.Attribute.Component<'base.sub-nav', true>;
   };
-}
-
-export interface BaseMainNav extends Struct.ComponentSchema {
-  collectionName: 'components_base_main_navs';
-  info: {
-    displayName: 'mainNav';
-  };
-  attributes: {};
 }
 
 export interface BaseNav extends Struct.ComponentSchema {
@@ -192,7 +185,6 @@ declare module '@strapi/strapi' {
       'base.contact': BaseContact;
       'base.footer': BaseFooter;
       'base.header': BaseHeader;
-      'base.main-nav': BaseMainNav;
       'base.nav': BaseNav;
       'base.promo-content': BasePromoContent;
       'base.seo': BaseSeo;

@@ -6,10 +6,14 @@
   },
   "options": {},
   "attributes": {
-
     "headerNavigation": {
       "type": "component",
       "component": "base.nav",
+      "repeatable": true
+    },
+    "secondaryNav": {
+      "type": "component",
+      "component": "base.sub-nav",
       "repeatable": true
     }
   },
