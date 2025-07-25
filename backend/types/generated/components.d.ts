@@ -15,6 +15,18 @@ export interface BaseBanner extends Struct.ComponentSchema {
   };
 }
 
+export interface BaseContact extends Struct.ComponentSchema {
+  collectionName: 'components_base_contacts';
+  info: {
+    displayName: 'contact';
+  };
+  attributes: {
+    address: Schema.Attribute.Text & Schema.Attribute.Required;
+    email: Schema.Attribute.Email & Schema.Attribute.Required;
+    phone: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface BaseFooter extends Struct.ComponentSchema {
   collectionName: 'components_base_footers';
   info: {
@@ -51,7 +63,10 @@ export interface BaseNav extends Struct.ComponentSchema {
     icon: 'oneWay';
   };
   attributes: {
-    slug: Schema.Attribute.String & Schema.Attribute.Required;
+    slug: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    subNav: Schema.Attribute.Component<'base.sub-nav', true>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -79,6 +94,33 @@ export interface BaseSeo extends Struct.ComponentSchema {
     metaDescription: Schema.Attribute.Text;
     metaTitle: Schema.Attribute.String;
     shareImage: Schema.Attribute.Media<'images'>;
+  };
+}
+
+export interface BaseSocialLinks extends Struct.ComponentSchema {
+  collectionName: 'components_base_social_links';
+  info: {
+    displayName: 'socialLinks';
+  };
+  attributes: {
+    link: Schema.Attribute.String & Schema.Attribute.Required;
+    type: Schema.Attribute.Enumeration<
+      ['facebook', 'instagram', 'tiktok', 'youtube', 'linkedin']
+    >;
+  };
+}
+
+export interface BaseSubNav extends Struct.ComponentSchema {
+  collectionName: 'components_base_sub_navs';
+  info: {
+    displayName: 'subNav';
+    icon: 'bulletList';
+  };
+  attributes: {
+    slug: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -145,12 +187,15 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'base.banner': BaseBanner;
+      'base.contact': BaseContact;
       'base.footer': BaseFooter;
       'base.header': BaseHeader;
       'base.main-nav': BaseMainNav;
       'base.nav': BaseNav;
       'base.promo-content': BasePromoContent;
       'base.seo': BaseSeo;
+      'base.social-links': BaseSocialLinks;
+      'base.sub-nav': BaseSubNav;
       'page.full-width-banner': PageFullWidthBanner;
       'page.hero-banner': PageHeroBanner;
       'page.image-or-color-banner': PageImageOrColorBanner;

@@ -16,11 +16,26 @@ query ($status: PublicationStatus) {
         id
         slug
         title
+        subNav {
+          id
+          title
+          slug
+        }
       }
     }
     title
     defaultSeo {
       ...SeoFields
+    }
+    socialLinks {
+      link
+      type
+      id
+    }
+    contact {
+      address
+      email
+      phone
     }
   }
 }

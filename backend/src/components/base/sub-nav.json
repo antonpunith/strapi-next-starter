@@ -1,8 +1,8 @@
 {
-  "collectionName": "components_base_navs",
+  "collectionName": "components_base_sub_navs",
   "info": {
-    "displayName": "nav",
-    "icon": "oneWay"
+    "displayName": "subNav",
+    "icon": "bulletList"
   },
   "options": {},
   "attributes": {
@@ -14,11 +14,6 @@
       "type": "string",
       "required": true,
       "unique": true
-    },
-    "subNav": {
-      "type": "component",
-      "component": "base.sub-nav",
-      "repeatable": true
     }
   },
   "config": {}

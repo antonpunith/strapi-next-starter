@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_base_social_links",
+  "info": {
+    "displayName": "socialLinks"
+  },
+  "options": {},
+  "attributes": {
+    "link": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "facebook",
+        "instagram",
+        "tiktok",
+        "youtube",
+        "linkedin"
+      ]
+    }
+  },
+  "config": {}
+}

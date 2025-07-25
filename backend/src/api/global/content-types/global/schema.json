@@ -29,6 +29,16 @@
     "title": {
       "type": "string",
       "required": true
+    },
+    "socialLinks": {
+      "type": "component",
+      "component": "base.social-links",
+      "repeatable": true
+    },
+    "contact": {
+      "type": "component",
+      "component": "base.contact",
+      "repeatable": false
     }
   }
 }
