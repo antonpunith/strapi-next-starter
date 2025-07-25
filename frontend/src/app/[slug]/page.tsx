@@ -25,6 +25,9 @@ export default async function Page({ params }: InferGetStaticPropsType<typeof ge
   const { slug } = await params;
   const data = await getGraphqlData(GET_PAGE_BY_SLUG, { slug });
   const pageData = data?.pages?.[0];
+  if (!pageData) {
+    return null;
+  }
 
   return (
     <>

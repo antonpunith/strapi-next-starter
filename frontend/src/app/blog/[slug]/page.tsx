@@ -25,6 +25,9 @@ export default async function Article({ params }: InferGetStaticPropsType<typeof
   const { slug } = await params;
   const data = await getGraphqlData(GET_ARTICLES_BY_SLUG, { slug });
   const pageData = data?.articles?.[0];
+  if (!pageData) {
+    return null;
+  }
 
   return (
     <>

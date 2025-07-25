@@ -23,6 +23,9 @@ export default async function BlogPage() {
   const data = await fetchGraphql(GET_BLOG_ARTICLES);
   const blogData = data?.blog;
   const articles = data?.articles || [];
+  if (!blogData) {
+    return null;
+  }
   return (
     <>
       <Heading>{blogData?.title || 'Blog'}</Heading>
