@@ -11,39 +11,56 @@ interface BannerItem {
     width?: number;
     height?: number;
   };
+  desktopImage?: {
+    url: string;
+    alternativeText?: string;
+    width?: number;
+    height?: number;
+  };
   ctaText?: string;
   ctaLink?: string;
 }
 
 interface HeroBannerSectionProps {
-  section: {
-    heroTitle: string;
-    banner?: BannerItem[];
-  };
+  heroTitle: string;
+  banner?: BannerItem[];
 }
 
-export const HeroBannerSection: React.FC<HeroBannerSectionProps> = ({ section }) => {
-  if (!section) {
-    return null;
-  }
+export const HeroBannerSection: React.FC<HeroBannerSectionProps> = ({ heroTitle, banner }) => {
+  if (!heroTitle) return null;
+  if (!banner || !Array.isArray(banner) || banner.length === 0) return (
+    <div className="bg-blue-50 rounded-lg p-4 shadow">
+      <h2>{heroTitle}</h2>
+      {/* No banners available */}
+    </div>
+  );
   return (
     <div className="bg-blue-50 rounded-lg p-4 shadow">
-      <h2>{section?.heroTitle}</h2>
-      {section?.banner && Array.isArray(section?.banner) && (
+      <h2>{heroTitle}</h2>
+      {banner && Array.isArray(banner) && banner.length > 0 && (
         <div className="mt-4 space-y-4">
-          {section?.banner?.map((item: BannerItem) => (
-            <div key={`hero-banner${item.id}`} className="bg-white rounded p-3 shadow">
-              <h3 className="text-lg font-bold mb-1">{item.title}</h3>
+          {banner.map((item: BannerItem) => (
+            <div key={`hero-banner${item.id ?? Math.random()}`} className="bg-white rounded p-3 shadow">
+              <h3 className="text-lg font-bold mb-1">{item.title ?? 'Untitled'}</h3>
               {item.mobileImage?.url && (
                 <MediaImage
                   url={item.mobileImage.url}
-                  alt={item.mobileImage.alternativeText || item.title}
+                  alt={item.mobileImage.alternativeText || item.title || 'Banner image'}
                   width={item.mobileImage.width}
                   height={item.mobileImage.height}
                   className="rounded mb-2"
                 />
               )}
-              <p className="mb-1">{item.description}</p>
+              {item.desktopImage?.url && (
+                <MediaImage
+                  url={item.desktopImage.url}
+                  alt={item.desktopImage.alternativeText || item.title || 'Banner image'}
+                  width={item.desktopImage.width}
+                  height={item.desktopImage.height}
+                  className="rounded mb-2"
+                />
+              )}
+              {item.description && <p className="mb-1">{item.description}</p>}
               {item.ctaText && item.ctaLink && (
                 <a href={item.ctaLink} className="text-blue-600 hover:underline">
                   {item.ctaText}
@@ -54,5 +71,5 @@ export const HeroBannerSection: React.FC<HeroBannerSectionProps> = ({ section })
         </div>
       )}
     </div>
-  )
+  );
 };

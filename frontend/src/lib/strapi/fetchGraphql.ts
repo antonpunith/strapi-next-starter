@@ -1,6 +1,7 @@
 import { cookies, draftMode } from "next/headers";
 import {
   GRAPHQL_ENDPOINT,
+  GRAPHQL_TOKEN,
   STATUS_DRAFT,
   STATUS_PUBLISHED,
   DEFAULT_CACHE_TIME,
@@ -38,11 +39,15 @@ export const fetchGraphql = async (
       variables: { ...variables, status },
     });
 
+    const headers: Record<string, string> = {
+      "Content-Type": "application/json",
+    };
+    if (GRAPHQL_TOKEN) {
+      headers["Authorization"] = `Bearer ${GRAPHQL_TOKEN}`;
+    }
     const response = await fetch(GRAPHQL_ENDPOINT, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers,
       body,
       cache: isPreview ? "no-store" : "force-cache",
       next: { revalidate: isPreview ? 0 : DEFAULT_CACHE_TIME },
