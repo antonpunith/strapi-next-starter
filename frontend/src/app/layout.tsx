@@ -1,5 +1,5 @@
 import { getBodyFontClass } from '@/lib/fonts';
-import "./scss/globals.scss";
+import "@/scss/style.scss";
 import { Header, Footer, PageClient } from '@/components/';
 import { MainContainer } from '@/components';
 import { DraftModeStatus } from '@/components/utils/DraftModeStatus';
