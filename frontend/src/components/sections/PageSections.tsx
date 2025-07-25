@@ -22,7 +22,7 @@ export const PageSections: React.FC<PageSectionsProps> = ({ sections }) => {
     <SectionsContainer>
       {sections.map((section, idx) => {
         if (section.__typename === 'ComponentPageHeroBanner') {
-          return <HeroBannerSection key={`hero-banner-${section.id}` || idx} section={section} />;
+          return <HeroBannerSection key={`hero-banner-${section.id}` || idx} {...section} />;
         }
         if (section.__typename === 'ComponentPageIntroText') {
           return <IntroTextSection key={`intro-text-${section.id}` || idx} title={section.introTitle} content={section.content as BlocksContent} ctaText={section.ctaText} ctaLink={section.ctaLink} />;

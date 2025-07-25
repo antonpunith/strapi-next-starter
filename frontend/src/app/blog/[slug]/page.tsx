@@ -29,7 +29,7 @@ export default async function Article({ params }: InferGetStaticPropsType<typeof
   return (
     <>
       <Heading>{pageData.title}</Heading>
-      <HeroBannerSection section={pageData.heroBanner} />
+      <HeroBannerSection {...pageData.heroBanner} />
       <PageSections sections={pageData.pageSections} />
     </>
   );

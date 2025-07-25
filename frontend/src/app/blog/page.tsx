@@ -26,7 +26,7 @@ export default async function BlogPage() {
   return (
     <>
       <Heading>{blogData?.title || 'Blog'}</Heading>
-      <HeroBannerSection section={blogData?.heroBanner} />
+      <HeroBannerSection {...blogData?.heroBanner} />
       <IntroTextSection {...blogData?.intro} />
       <PageSections sections={blogData?.pageSections} />
       {articles && articles.length > 0 && (
