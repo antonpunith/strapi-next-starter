@@ -10,6 +10,8 @@ query ($status: PublicationStatus) {
         title
       }
       id
+      footerText
+      footerCopyrightMessage
     }
     header {
       headerNavigation {

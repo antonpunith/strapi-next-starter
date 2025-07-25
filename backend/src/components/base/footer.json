@@ -9,6 +9,12 @@
       "type": "component",
       "component": "base.nav",
       "repeatable": true
+    },
+    "footerText": {
+      "type": "blocks"
+    },
+    "footerCopyrightMessage": {
+      "type": "blocks"
     }
   },
   "config": {}

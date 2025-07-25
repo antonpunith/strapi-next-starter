@@ -1,29 +1,11 @@
-import { fontSans, fontHeading } from '@/lib/fonts';
+import { getBodyFontClass } from '@/lib/fonts';
 import "./scss/globals.scss";
 import { Header, Footer, PageClient } from '@/components/';
 import { MainContainer } from '@/components';
-
-import { DraftModeStatus } from '@/components/utils/DraftModeStatus'; // Ensure this import is correct
+import { DraftModeStatus } from '@/components/utils/DraftModeStatus';
 import { getGraphqlData } from "@/lib/graphql";
 import { GET_GLOBAL } from "@/lib/strapi/queries/global";
-
-// Define the type for globalData based on its expected structure
-type GlobalData = {
-  global: {
-    header: {
-      headerNavigation: Nav[];
-    };
-    footer: {
-      footerNavigation: Nav[];
-    };
-  };
-};
-
-interface Nav {
-  id: string; title: string; slug: string
-}
-
-
+import type { GlobalData } from '@/lib/strapi/types/global';
 
 export default async function RootLayout({
   children,
@@ -31,22 +13,17 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   let globalData: GlobalData | null = null;
-  let headerNav: Nav[] = [];
-  let footerNav: Nav[] = [];
 
   globalData = await getGraphqlData(GET_GLOBAL) as GlobalData;
-  headerNav = globalData?.global?.header?.headerNavigation || [];
-  footerNav = globalData?.global?.footer?.footerNavigation || [];
   return (
     <html lang="en">
-      <body className={`${fontSans.variable} ${fontHeading.variable} antialiased`}>
-
-        <Header navigation={headerNav} />
+      <body className={getBodyFontClass()}>
+        <Header globalData={globalData} />
         <MainContainer>
           {children}
           {process.env.NODE_ENV === 'development' && <DraftModeStatus />}
         </MainContainer>
-        <Footer navigation={footerNav} />
+        <Footer globalData={globalData} />
         <PageClient />
       </body>
     </html>

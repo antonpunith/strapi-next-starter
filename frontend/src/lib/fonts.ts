@@ -12,3 +12,6 @@ export const fontHeading = Playfair_Display({
   variable: "--font-heading",
   display: "swap",
 });
+
+export const getBodyFontClass: () => string = () =>
+  `${fontSans.variable} ${fontHeading.variable} antialiased`;

@@ -33,7 +33,9 @@ export interface BaseFooter extends Struct.ComponentSchema {
     displayName: 'footer';
   };
   attributes: {
+    footerCopyrightMessage: Schema.Attribute.Blocks;
     footerNavigation: Schema.Attribute.Component<'base.nav', true>;
+    footerText: Schema.Attribute.Blocks;
   };
 }
 
