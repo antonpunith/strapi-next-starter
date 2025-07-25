@@ -15,7 +15,7 @@ export async function generateMetadata() {
   const globalSeo = global?.global?.defaultSeo;
   return {
     title: pageSeo?.metaTitle || globalSeo?.metaTitle || 'Blog',
-    description: pageSeo.metaDescription || globalSeo?.metaDescription || 'Blog',
+    description: pageSeo?.metaDescription || globalSeo?.metaDescription || 'Blog',
   };
 }
 
