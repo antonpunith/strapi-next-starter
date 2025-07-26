@@ -1,7 +1,7 @@
 const INTRO_TEXT_SECTION_FRAGMENT = `
 fragment IntroTextSectionFields on ComponentPageIntroText {
   id
-  title
+  introTitle: title
   content
   ctaText
   ctaLink

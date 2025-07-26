@@ -4,13 +4,17 @@ fragment BannerFields on ComponentBaseBanner {
   id
   title
   description
-  desktopImage {
-    url
-    alternativeText
-  }
   mobileImage {
     url
     alternativeText
+    width
+    height
+  }
+  desktopImage {
+    url
+    alternativeText
+    width
+    height
   }
   ctaText
   ctaLink

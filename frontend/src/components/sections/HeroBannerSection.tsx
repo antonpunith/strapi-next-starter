@@ -1,32 +1,9 @@
 import { MediaImage } from '@/components';
 import React from 'react';
+import type { HeroBanner } from '@/lib/strapi/types/global';
 
-interface BannerItem {
-  id: string | number;
-  title: string;
-  description?: string;
-  mobileImage?: {
-    url: string;
-    alternativeText?: string;
-    width?: number;
-    height?: number;
-  };
-  desktopImage?: {
-    url: string;
-    alternativeText?: string;
-    width?: number;
-    height?: number;
-  };
-  ctaText?: string;
-  ctaLink?: string;
-}
 
-interface HeroBannerSectionProps {
-  heroTitle: string;
-  banner?: BannerItem[];
-}
-
-export const HeroBannerSection: React.FC<HeroBannerSectionProps> = ({ heroTitle, banner }) => {
+export const HeroBannerSection: React.FC<HeroBanner> = ({ heroTitle, banner }) => {
   if (!heroTitle) return null;
   if (!banner || !Array.isArray(banner) || banner.length === 0) return (
     <div className="bg-blue-50 rounded-lg p-4 shadow">
@@ -39,7 +16,7 @@ export const HeroBannerSection: React.FC<HeroBannerSectionProps> = ({ heroTitle,
       <h2>{heroTitle}</h2>
       {banner && Array.isArray(banner) && banner.length > 0 && (
         <div className="mt-4 space-y-4">
-          {banner.map((item: BannerItem) => (
+          {banner.map((item) => (
             <div key={`hero-banner${item.id ?? Math.random()}`} className="bg-white rounded p-3 shadow">
               <h3 className="text-lg font-bold mb-1">{item.title ?? 'Untitled'}</h3>
               {item.mobileImage?.url && (

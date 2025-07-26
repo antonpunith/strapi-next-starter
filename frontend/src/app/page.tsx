@@ -2,9 +2,11 @@ import { Heading, HeroBannerSection, IntroTextSection, PageSections } from '@/co
 import { getGraphqlData } from '@/lib/graphql';
 import { GET_GLOBAL_SEO } from '@/lib/strapi/queries/global';
 import { GET_HOME } from '@/lib/strapi/queries/home';
+import type { GlobalData, HomePageData } from '@/lib/strapi/types/global';
+
 
 export async function generateMetadata() {
-  const [pageData, global] = await Promise.all([
+  const [pageData, global]: [HomePageData, GlobalData] = await Promise.all([
     getGraphqlData(GET_HOME),
     getGraphqlData(GET_GLOBAL_SEO),
   ]);
@@ -17,7 +19,7 @@ export async function generateMetadata() {
 }
 
 const HomePage = async () => {
-  const data = await getGraphqlData(GET_HOME);
+  const data: HomePageData = await getGraphqlData(GET_HOME);
   const homePage = data?.homePage;
 
   if (!homePage) {
@@ -27,7 +29,9 @@ const HomePage = async () => {
   return (
     <>
       <Heading>{homePage?.title || 'Home'}</Heading>
-      <HeroBannerSection {...homePage.heroBanner} />
+      <HeroBannerSection
+        {...homePage.heroBanner}
+      />
       <IntroTextSection {...homePage.intro} />
       {homePage?.pageSections && homePage.pageSections.length > 0 && (
         <PageSections sections={homePage.pageSections} />

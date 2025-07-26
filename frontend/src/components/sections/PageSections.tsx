@@ -3,18 +3,10 @@ import React from 'react';
 import { HeroBannerSection } from './HeroBannerSection';
 import { IntroTextSection } from './IntroTextSection';
 import { ImageOrColorBanner } from './ImageOrColorBanner';
-import { HeroBannerSectionType, ImageOrColorBannerType, IntroTextSectionType } from '@/lib/strapi/types';
 import { BlocksContent } from '@strapi/blocks-react-renderer';
 import { SectionsContainer } from '@/components';
+import { PageSectionsProps } from '@/lib/strapi/types/global';
 
-export type PageSection =
-  | (HeroBannerSectionType & { __typename: 'ComponentPageHeroBanner' })
-  | (IntroTextSectionType & { __typename: 'ComponentPageIntroText' })
-  | (ImageOrColorBannerType & { __typename: 'ComponentPageImageOrColorBanner' });
-
-interface PageSectionsProps {
-  sections: PageSection[];
-}
 
 export const PageSections: React.FC<PageSectionsProps> = ({ sections }) => {
   if (!sections || sections.length === 0) return null;

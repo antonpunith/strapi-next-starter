@@ -5,7 +5,6 @@ import { fetchGraphql } from '@/lib/strapi/fetchGraphql';
 import { GET_BLOG_ARTICLES } from '@/lib/strapi/queries/blog';
 import { GET_GLOBAL_SEO } from '@/lib/strapi/queries/global';
 
-
 export async function generateMetadata() {
   const [pageData, global] = await Promise.all([
     fetchGraphql(GET_BLOG_ARTICLES),
