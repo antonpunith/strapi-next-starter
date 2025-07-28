@@ -104,12 +104,22 @@ export interface GlobalData {
     footer: {
       footerNavigation: Nav[];
     };
+    socialLinks?: {
+      link: string;
+      type?: string;
+      id: string;
+    }[];
+    contact?: {
+      address: string;
+      email: string;
+      phone: string;
+    };
   };
 }
 
 export interface HomePageData {
   homePage?: {
-    title?: string;
+    title: string;
     heroBanner?: HeroBanner;
     intro?: IntroTextSection;
     pageSections?: PageSection[];
