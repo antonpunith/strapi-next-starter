@@ -1,30 +1,70 @@
 import { BlocksContent } from "@strapi/blocks-react-renderer";
 
-export interface ImageOrColorBannerSection {
-  __typename: "ComponentPageImageOrColorBanner";
-  colorBannerTitle?: string;
-  background?: string;
-  ctaLink?: string;
-  ctaText?: string;
-  description?: BlocksContent;
-}
-
 export type PageSection =
   | (HeroBannerSectionType & { __typename: "ComponentPageHeroBanner" })
   | (IntroTextSectionType & { __typename: "ComponentPageIntroText" })
   | (ImageOrColorBannerType & {
       __typename: "ComponentPageImageOrColorBanner";
     });
-export interface PageSectionsProps {
-  sections: PageSection[];
+
+export interface ImageOrColorBannerSection {
+  id: string | number;
+  __typename?: string;
+  colorBannerTitle: string;
+  background?: string;
+  ctaLink?: string;
+  ctaText?: string;
+  description?: BlocksContent;
 }
+
+export interface ImageOrColorBannerType {
+  id: string | number;
+  colorBannerTitle?: string;
+  description?: BlocksContent;
+  ctaLink?: string;
+  ctaText?: string;
+  __component?: string;
+  __typename?: string;
+}
+
+export interface HeroBannerSectionType {
+  id: string | number;
+  __component: string;
+  __typename?: string;
+  heroTitle: string;
+  banner?: BannerItem[];
+  speed?: number;
+}
+
+export interface HeroBanner {
+  id: string | number;
+  __component: string;
+  __typename?: string;
+  heroTitle: string;
+  banner?: BannerItem[];
+  speed?: number;
+}
+
+export interface IntroTextSectionType {
+  id: string | number;
+  __component?: "page.intro-text";
+  introTitle: string;
+  content?: BlocksContent;
+  ctaText?: string;
+  ctaLink?: string;
+}
+
 export interface IntroTextSection {
   id: string | number;
-  title: string;
+  introTitle: string;
   content: BlocksContent;
   ctaText?: string;
   ctaLink?: string;
   __typename?: string;
+}
+
+export interface PageSectionsProps {
+  sections: PageSection[];
 }
 
 export interface Image {
@@ -88,13 +128,6 @@ export interface BannerItem {
   __typename?: string;
 }
 
-export interface HeroBanner {
-  heroTitle?: string;
-  banner?: BannerItem[];
-  speed?: number;
-  __typename?: string;
-}
-
 export interface PageResponse {
   id: number;
   documentId: string;
@@ -107,29 +140,4 @@ export interface PageResponse {
   pageSections: Array<
     HeroBannerSectionType | IntroTextSectionType | ImageOrColorBannerType
   >;
-}
-
-export interface HeroBannerSectionType {
-  id: number;
-  __component: "page.hero-banner";
-  heroTitle: string;
-  speed: number;
-}
-
-export interface IntroTextSectionType {
-  id: number;
-  __component: "page.intro-text";
-  introTitle: string;
-  content: BlocksContent;
-  ctaText: string;
-  ctaLink: string;
-}
-
-export interface ImageOrColorBannerType {
-  id?: string | number;
-  colorBannerTitle?: string;
-  description?: BlocksContent;
-  ctaLink?: string;
-  ctaText?: string;
-  __component: "page.image-or-color-banner";
 }

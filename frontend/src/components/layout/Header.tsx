@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { GlobalData } from "@/lib/strapi/types/global";
+import { GlobalData } from "@/lib/types/global";
 
 export interface Nav {
   id: string | number;

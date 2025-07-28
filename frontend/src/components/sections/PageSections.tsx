@@ -3,9 +3,8 @@ import React from 'react';
 import { HeroBannerSection } from './HeroBannerSection';
 import { IntroTextSection } from './IntroTextSection';
 import { ImageOrColorBanner } from './ImageOrColorBanner';
-import { BlocksContent } from '@strapi/blocks-react-renderer';
 import { SectionsContainer } from '@/components';
-import { PageSectionsProps } from '@/lib/strapi/types/global';
+import { PageSectionsProps } from '@/lib/types/global';
 
 
 export const PageSections: React.FC<PageSectionsProps> = ({ sections }) => {
@@ -17,10 +16,10 @@ export const PageSections: React.FC<PageSectionsProps> = ({ sections }) => {
           return <HeroBannerSection key={`hero-banner-${section.id}` || idx} {...section} />;
         }
         if (section.__typename === 'ComponentPageIntroText') {
-          return <IntroTextSection key={`intro-text-${section.id}` || idx} title={section.introTitle} content={section.content as BlocksContent} ctaText={section.ctaText} ctaLink={section.ctaLink} />;
+          return <IntroTextSection key={`intro-text-${section.id}` || idx} {...section} />;
         }
         if (section.__typename === 'ComponentPageImageOrColorBanner') {
-          return <ImageOrColorBanner key={`image-or-color-banner-${section.id}` || idx} title={section.colorBannerTitle ?? ''} description={section.description as BlocksContent} ctaText={section.ctaText} ctaLink={section.ctaLink} />;
+          return <ImageOrColorBanner key={`image-or-color-banner-${section.id}` || idx} {...section} />;
         }
         return null;
       })}

@@ -5,7 +5,7 @@ import { MainContainer } from '@/components';
 import { DraftModeStatus } from '@/components/utils/DraftModeStatus';
 import { getGraphqlData } from "@/lib/graphql";
 import { GET_GLOBAL } from "@/lib/strapi/queries/global";
-import type { GlobalData } from '@/lib/strapi/types/global';
+import type { GlobalData } from '@/lib/types/global';
 
 export default async function RootLayout({
   children,

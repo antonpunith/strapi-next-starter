@@ -1,6 +1,6 @@
 import { MediaImage } from '@/components';
 import React from 'react';
-import type { HeroBanner } from '@/lib/strapi/types/global';
+import type { HeroBanner } from '@/lib/types/global';
 
 
 export const HeroBannerSection: React.FC<HeroBanner> = ({ heroTitle, banner }) => {

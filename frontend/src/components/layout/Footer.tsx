@@ -1,4 +1,4 @@
-import { GlobalData } from "@/lib/strapi/types/global";
+import { GlobalData } from "@/lib/types/global";
 import React from "react";
 
 export interface Nav {

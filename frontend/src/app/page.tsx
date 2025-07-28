@@ -2,7 +2,7 @@ import { Heading, HeroBannerSection, IntroTextSection, PageSections } from '@/co
 import { getGraphqlData } from '@/lib/graphql';
 import { GET_GLOBAL_SEO } from '@/lib/strapi/queries/global';
 import { GET_HOME } from '@/lib/strapi/queries/home';
-import type { GlobalData, HomePageData } from '@/lib/strapi/types/global';
+import type { GlobalData, HomePageData } from '@/lib/types/global';
 
 
 export async function generateMetadata() {
@@ -26,13 +26,13 @@ const HomePage = async () => {
     return <Heading>Home Page Not Found</Heading>;
   }
 
+  const { heroBanner, intro } = homePage;
+
   return (
     <>
       <Heading>{homePage?.title || 'Home'}</Heading>
-      <HeroBannerSection
-        {...homePage.heroBanner}
-      />
-      <IntroTextSection {...homePage.intro} />
+      {heroBanner && <HeroBannerSection {...heroBanner} />}
+      {intro && <IntroTextSection {...intro} />}
       {homePage?.pageSections && homePage.pageSections.length > 0 && (
         <PageSections sections={homePage.pageSections} />
       )}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { BlocksRenderer } from '@strapi/blocks-react-renderer';
-import type { PageSection } from '@/lib/strapi/types/global';
+import type { PageSection } from '@/lib/types/global';
 
 type ImageOrColorBannerProps = Extract<PageSection, { __typename: 'ComponentPageImageOrColorBanner' }>;
 
