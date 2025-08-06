@@ -1,0 +1,43 @@
+{
+  "collectionName": "components_house_floorplans",
+  "info": {
+    "displayName": "floorplans"
+  },
+  "options": {},
+  "attributes": {
+    "groundFloorImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "groundFloorImageFlipped": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "firstFloorImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "firstFloorImageFlipped": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "customisations": {
+      "type": "component",
+      "component": "house.floorplan-customisation",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

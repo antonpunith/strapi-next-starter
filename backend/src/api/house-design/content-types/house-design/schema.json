@@ -1,0 +1,82 @@
+{
+  "kind": "collectionType",
+  "collectionName": "house_designs",
+  "info": {
+    "singularName": "house-design",
+    "pluralName": "house-designs",
+    "displayName": "House Design"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "startingPrice": {
+      "type": "decimal"
+    },
+    "featuredFacadeImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "featuredFloorplanImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "galleryImages": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "facades": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::facade.facade",
+      "mappedBy": "house_designs"
+    },
+    "filters": {
+      "type": "component",
+      "component": "house.house-filters",
+      "repeatable": false
+    },
+    "canFlipFloorplan": {
+      "type": "boolean"
+    },
+    "brochure": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "floorplan": {
+      "type": "component",
+      "component": "house.floorplans",
+      "repeatable": false
+    },
+    "seo": {
+      "type": "component",
+      "component": "base.seo",
+      "repeatable": false
+    }
+  }
+}

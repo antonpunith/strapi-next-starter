@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "home_series_list",
+  "info": {
+    "singularName": "home-series",
+    "pluralName": "home-series-list",
+    "displayName": "Home Series"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": { "type": "string", "required": true },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "introText": { "type": "richtext" },
+    "bannerImage": {
+      "type": "media",
+      "allowedTypes": ["images"]
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "base.seo"
+    }
+  }
+}

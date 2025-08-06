@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_house_floorplan_customisations",
+  "info": {
+    "displayName": "floorplanCustomisation"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "appliesTo": {
+      "type": "enumeration",
+      "enum": ["ground", "first", "both"],
+      "default": "ground"
+    },
+    "groundFloorImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "groundFloorImageFlipped": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "firstFloorImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "firstFloorImageFlipped": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    }
+  },
+  "config": {}
+}

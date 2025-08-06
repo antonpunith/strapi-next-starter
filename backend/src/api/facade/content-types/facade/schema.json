@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "facades",
+  "info": {
+    "singularName": "facade",
+    "pluralName": "facades",
+    "displayName": "Facade"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "image": {
+      "type": "media",
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "house_designs": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::house-design.house-design",
+      "inversedBy": "facades"
+    },
+    "seo": {
+      "type": "component",
+      "component": "base.seo",
+      "repeatable": false
+    }
+  }
+}

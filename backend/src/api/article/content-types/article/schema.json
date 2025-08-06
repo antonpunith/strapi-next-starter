@@ -4,7 +4,7 @@
   "info": {
     "singularName": "article",
     "pluralName": "articles",
-    "displayName": "article"
+    "displayName": "Article"
   },
   "options": {
     "draftAndPublish": true
@@ -16,9 +16,9 @@
       "required": true
     },
     "slug": {
-      "type": "string",
-      "required": true,
-      "unique": true
+      "type": "uid",
+      "targetField": "title",
+      "required": true
     },
     "heroBanner": {
       "type": "component",
